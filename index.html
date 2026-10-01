@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperiale Garde – Allianz-Handbuch</title>
+  <meta name="description" content="Allianz-Handbuch der Imperalen Garde für Star Trek Fleet Command">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #050914;
+  --panel: rgba(10, 22, 42, 0.88);
+  --line: rgba(80, 190, 255, 0.35);
+  --blue: #58c7ff;
+  --blue2: #1d75ad;
+  --gold: #e7c96a;
+  --text: #e9f5ff;
+  --muted: #9db4c9;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(25, 100, 170, .22), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(90, 40, 150, .14), transparent 30%),
+    var(--bg);
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+.stars {
+  position: fixed; inset: 0; pointer-events: none; opacity: .45;
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, #7fd7ff 1px, transparent 1px);
+  background-size: 97px 113px, 151px 173px;
+  background-position: 10px 20px, 60px 80px;
+}
+
+.hero {
+  position: relative;
+  max-width: 1180px;
+  margin: auto;
+  padding: 55px 24px 35px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo-placeholder {
+  width: 92px; height: 92px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--gold);
+  font: 700 25px Orbitron, sans-serif;
+  background: radial-gradient(circle, rgba(88,199,255,.15), rgba(0,0,0,.25));
+  box-shadow: 0 0 28px rgba(88,199,255,.12);
+}
+
+.eyebrow, .section-tag {
+  color: var(--blue);
+  font: 600 12px Orbitron, sans-serif;
+  letter-spacing: .16em;
+}
+
+h1, h2, h3 {
+  font-family: Orbitron, sans-serif;
+  font-weight: 600;
+}
+
+h1 { margin: 3px 0 0; font-size: clamp(30px, 6vw, 56px); }
+.hero p { margin: 4px 0 0; color: var(--gold); font: 500 16px Orbitron, sans-serif; }
+
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; gap: 8px; overflow-x: auto;
+  padding: 10px max(16px, calc((100% - 1180px)/2));
+  background: rgba(3, 8, 18, .94);
+  border-top: 1px solid rgba(88,199,255,.15);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.nav a {
+  white-space: nowrap;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 9px 13px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.nav a:hover { color: var(--text); border-color: var(--line); background: rgba(88,199,255,.07); }
+
+main { position: relative; max-width: 1050px; margin: auto; padding: 25px 20px 70px; }
+
+.section {
+  margin: 24px 0;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 18px 45px rgba(0,0,0,.2);
+  scroll-margin-top: 75px;
+}
+
+.section h2 { margin: 5px 0 12px; font-size: clamp(22px, 4vw, 32px); }
+.section h3 { color: var(--gold); margin-top: 28px; }
+.section p { color: #c7d9e8; }
+
+.intro { border-color: rgba(231,201,106,.35); }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.card {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 20px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(88,199,255,.22);
+  border-radius: 8px;
+  background: rgba(20,50,80,.28);
+  transition: .2s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--blue); }
+.card span { font-size: 27px; }
+.card b { font-family: Orbitron, sans-serif; font-size: 14px; }
+.card small { color: var(--muted); }
+
+.placeholder {
+  padding: 17px 20px;
+  border-left: 3px solid var(--gold);
+  background: rgba(231,201,106,.055);
+  color: var(--muted) !important;
+}
+
+footer {
+  position: relative;
+  padding: 28px 20px 45px;
+  text-align: center;
+  color: #71879a;
+  font: 10px Orbitron, sans-serif;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 720px) {
+  .hero { padding-top: 35px; }
+  .logo-placeholder { width: 65px; height: 65px; font-size: 18px; }
+  .cards { grid-template-columns: 1fr; }
+  .section { padding: 25px 20px; }
+  .nav { padding-left: 10px; padding-right: 10px; }
+}
+
+</style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <header class="hero">
+    <div class="logo-placeholder">IG</div>
+    <div>
+      <div class="eyebrow">STAR TREK FLEET COMMAND</div>
+      <h1>Imperiale Garde</h1>
+      <p>Allianz-Handbuch</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#start">Startseite</a>
+    <a href="#regeln">Allianzregeln</a>
+    <a href="#mining">Mining &amp; Ressourcen</a>
+    <a href="#kampf">Kampf &amp; PvP</a>
+    <a href="#armadas">Armadas</a>
+    <a href="#crews">Tipps für Crews</a>
+    <a href="#events">Events &amp; Vorgaben</a>
+    <a href="#spezialschiffe">Spezialschiffe</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <main>
+    <section id="start" class="section intro">
+      <span class="section-tag">BRÜCKE</span>
+      <h2>Willkommen bei der Imperialen Garde</h2>
+      <p>Dieses Handbuch sammelt die wichtigsten Regeln, Vorgaben und Tipps unserer Allianz an einem Ort.</p>
+      <div class="cards">
+        <a class="card" href="#regeln"><span>📜</span><b>Allianzregeln</b><small>Gemeinsame Regeln und Vorgaben</small></a>
+        <a class="card" href="#armadas"><span>🚀</span><b>Armadas</b><small>Grundsätzliches und Formationen</small></a>
+        <a class="card" href="#crews"><span>👨‍🚀</span><b>Crew-Tipps</b><small>Hilfreiche Crew-Zusammenstellungen</small></a>
+      </div>
+    </section>
+
+    <section id="regeln" class="section">
+      <span class="section-tag">DIREKTIVE 01</span>
+      <h2>Allianzregeln</h2>
+      <p class="placeholder">Hier kommen später die gemeinsamen Allianzregeln hinein.</p>
+    </section>
+
+    <section id="mining" class="section">
+      <span class="section-tag">RESSOURCEN</span>
+      <h2>Mining &amp; Ressourcen</h2>
+      <p class="placeholder">Hier werden später G3/G4-Regeln, Mining-Gebiete und besondere Vorgaben eingetragen.</p>
+    </section>
+
+    <section id="kampf" class="section">
+      <span class="section-tag">TAKTIK</span>
+      <h2>Kampf &amp; PvP</h2>
+      <p class="placeholder">Hier kommen später PvP-Regeln, Angriffs- und Verteidigungsvorgaben hinein.</p>
+    </section>
+
+    <section id="armadas" class="section">
+      <span class="section-tag">FLOTTENOPERATIONEN</span>
+      <h2>Armadas</h2>
+      <h3>Grundsätzliches</h3>
+      <p class="placeholder">Grundlegende Armada-Regeln und Hinweise.</p>
+      <h3>Armadaformationen</h3>
+      <p class="placeholder">Hier können später einige bewährte Formationen kompakt dargestellt werden.</p>
+    </section>
+
+    <section id="crews" class="section">
+      <span class="section-tag">OFFIZIERE</span>
+      <h2>Tipps für Crews</h2>
+      <p class="placeholder">Crew-Empfehlungen für Farming, PvE, PvP und besondere Situationen.</p>
+    </section>
+
+    <section id="events" class="section">
+      <span class="section-tag">MISSIONEN</span>
+      <h2>Events &amp; Vorgaben</h2>
+      <p class="placeholder">Hier kommen später Allianz-Events, Eventregeln und besondere Vorgaben hinein.</p>
+    </section>
+
+    <section id="spezialschiffe" class="section">
+      <span class="section-tag">SPEZIALFLOTTEN</span>
+      <h2>Spezialschiffe</h2>
+      <p class="placeholder">Dieser Bereich kann später um einzelne Spezialschiffe, Einsatzgebiete und Tipps erweitert werden.</p>
+    </section>
+
+    <section id="faq" class="section">
+      <span class="section-tag">DATENBANK</span>
+      <h2>FAQ</h2>
+      <p class="placeholder">Häufige Fragen und kurze Antworten für Mitglieder.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div>IMPÉRIALE GARDE · ALLIANZ-HANDBUCH</div>
+    <div>Star Trek Fleet Command · Fanprojekt</div>
+  </footer>
+
+  <script>
+// Kleine Komfortfunktion: markiert beim Scrollen den sichtbaren Menüpunkt.
+const sections = [...document.querySelectorAll('main section')];
+const links = [...document.querySelectorAll('.nav a')];
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(link => link.style.color = '');
+      const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+      if (active) active.style.color = '#58c7ff';
+    }
+  });
+}, { rootMargin: '-20% 0px -65% 0px' });
+
+sections.forEach(section => observer.observe(section));
+
+</script>
+</body>
+</html>
