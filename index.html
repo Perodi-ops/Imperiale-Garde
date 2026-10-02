@@ -221,20 +221,12 @@ main {
   background: rgba(20,50,80,.18);
 }
 
-/* REGELN-TAFEL */
+/* REGELN-BILD */
 
-.section#regeln {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.section#regeln .rules-image {
+.rules-image {
   display: block;
   width: 100%;
-  max-width: none;
+  max-width: 750px;
   height: auto;
   margin: 20px auto 0;
   border: none;
@@ -300,6 +292,9 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .rules-image {
+    max-width: 100%;
+  }
 }
 </style>
 </head>
@@ -352,6 +347,28 @@ footer {
     Dieses Handbuch sammelt die wichtigsten Regeln,
     Vorgaben und Tipps unserer Allianz an einem Ort.
   </p>
+
+  <div class="cards">
+
+    <a class="card" href="#regeln">
+      <span>📜</span>
+      <b>Allianzregeln</b>
+      <small>Gemeinsame Regeln und Vorgaben</small>
+    </a>
+
+    <a class="card" href="#armadas">
+      <span>🚀</span>
+      <b>Armadas</b>
+      <small>Grundsätzliches und Formationen</small>
+    </a>
+
+    <a class="card" href="#crews">
+      <span>👨‍🚀</span>
+      <b>Crew-Tipps</b>
+      <small>Hilfreiche Crew-Zusammenstellungen</small>
+    </a>
+
+  </div>
 
 </section>
 
@@ -626,4 +643,4 @@ sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
-</html> 
+</html>
