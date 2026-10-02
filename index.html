@@ -16,13 +16,8 @@
 :root {
   --bg: #050914;
   --panel: rgba(10, 22, 42, 0.88);
-
-  /* Goldene Rahmen */
-  --line: rgba(231, 201, 106, 0.55);
-
-  /* Cyan beim Hover */
+  --line: rgba(231, 201, 106, 0.9);
   --blue: #58c7ff;
-
   --gold: #e7c96a;
   --text: #e9f5ff;
   --muted: #9db4c9;
@@ -36,7 +31,6 @@
 body {
   margin: 0;
   color: var(--text);
-
   background:
     radial-gradient(
       circle at 20% 10%,
@@ -49,16 +43,10 @@ body {
       transparent 30%
     ),
     var(--bg);
-
   font-family: Roboto, Arial, sans-serif;
   line-height: 1.65;
   overflow-x: hidden;
 }
-
-
-/* =========================
-   STERNE
-   ========================= */
 
 .stars {
   position: fixed;
@@ -86,10 +74,8 @@ body {
 
 .hero {
   position: relative;
-
   max-width: 1180px;
   margin: auto;
-
   padding: 42px 24px 30px;
 
   display: flex;
@@ -97,50 +83,38 @@ body {
   align-items: center;
 
   text-align: center;
-
   gap: 12px;
 }
 
 .alliance-logo {
   width: 300px;
   height: 300px;
-
   object-fit: contain;
 
   border-radius: 50%;
-
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
 
   box-shadow:
-    0 0 28px rgba(231,201,106,.12);
+    0 0 12px rgba(231, 201, 106, .22);
 }
 
 .eyebrow {
   margin-top: 4px;
-
   font-family: Orbitron, sans-serif;
-
   font-size: clamp(18px, 3vw, 30px);
-
   font-weight: 400;
 }
 
 h1 {
   margin: 4px 0 0;
-
   font-size: clamp(36px, 7vw, 62px);
-
   line-height: 1.15;
 }
 
 .hero p {
   margin: 8px 0 0;
-
   color: var(--gold);
-
-  font:
-    500 18px Orbitron,
-    sans-serif;
+  font: 500 18px Orbitron, sans-serif;
 }
 
 
@@ -150,43 +124,34 @@ h1 {
 
 main {
   position: relative;
-
   max-width: 1050px;
   margin: auto;
-
   padding: 25px 20px 70px;
 }
 
 .section {
   margin: 24px 0;
-
   padding: 34px;
 
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 10px;
 
   background: var(--panel);
 
   box-shadow:
+    0 0 8px rgba(231, 201, 106, .18),
     0 18px 45px rgba(0,0,0,.2);
 
   scroll-margin-top: 30px;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
 }
 
 .section h2 {
   margin: 5px 0 12px;
-
-  font-size:
-    clamp(22px, 4vw, 32px);
+  font-size: clamp(22px, 4vw, 32px);
 }
 
 .section h3 {
   color: var(--gold);
-
   margin-top: 28px;
 }
 
@@ -200,11 +165,8 @@ main {
 
 .section-tag {
   font-family: Orbitron, sans-serif;
-
   color: var(--gold);
-
   font-size: 13px;
-
   letter-spacing: .06em;
 }
 
@@ -214,60 +176,50 @@ main {
    ========================= */
 
 .cards {
+  display: grid;
 
   /*
      6 Spalten.
-
      Jede Kachel belegt 2 Spalten.
-     Dadurch sind sie exakt so breit
-     wie im ursprünglichen 3-Spalten-Layout.
+     Dadurch entspricht die Breite
+     weiterhin dem ursprünglichen
+     3-Spalten-Layout.
   */
-
-  display: grid;
 
   grid-template-columns:
     repeat(6, minmax(0, 1fr));
 
   gap: 15px;
-
   margin-top: 28px;
 }
 
 .card {
-
   display: flex;
-
   flex-direction: column;
   justify-content: center;
 
   gap: 2px;
 
   min-height: 72px;
-
   padding: 8px 12px;
 
   color: var(--text);
-
   text-decoration: none;
-
   text-align: center;
 
-  border:
-    1px solid var(--line);
-
+  border: 2px solid rgba(231, 201, 106, .85);
   border-radius: 8px;
 
-  background:
-    rgba(20,50,80,.28);
+  background: rgba(20,50,80,.28);
 
-  transition:
-    .2s ease;
+  box-shadow:
+    0 0 7px rgba(231, 201, 106, .12);
+
+  transition: .2s ease;
 }
 
 
-/*
-   Jede Kachel ist 2 von 6 Spalten breit.
-*/
+/* Jede Kachel = 2 von 6 Spalten */
 
 .card:nth-child(1),
 .card:nth-child(2),
@@ -277,69 +229,59 @@ main {
 .card:nth-child(6),
 .card:nth-child(7),
 .card:nth-child(8) {
-
-  grid-column:
-    span 2;
+  grid-column: span 2;
 }
 
 
 /*
    Letzte Reihe:
 
-   Kachel 7 beginnt bei Spalte 2.
-   Kachel 8 beginnt bei Spalte 4.
+   Spalte 1 bleibt frei.
+   Kachel 7 = Spalten 2–3.
+   Kachel 8 = Spalten 4–5.
+   Spalte 6 bleibt frei.
 
-   Dadurch stehen beide gemeinsam
-   exakt mittig.
+   Dadurch exakt mittig.
 */
 
 .card:nth-child(7) {
-  grid-column:
-    2 / span 2;
+  grid-column: 2 / span 2;
 }
 
 .card:nth-child(8) {
-  grid-column:
-    4 / span 2;
+  grid-column: 4 / span 2;
 }
 
 
-/* Hover-Effekt */
+/* Hover */
 
 .card:hover {
-
   color: var(--text);
 
-  border-color:
-    var(--blue);
+  border-color: var(--blue);
 
   background:
     rgba(88,199,255,.09);
 
   box-shadow:
-    0 0 18px rgba(88,199,255,.18);
+    0 0 18px rgba(88,199,255,.22);
 
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .card span {
   font-size: 22px;
-
   line-height: 1.05;
 }
 
 .card b {
   font-family: Orbitron, sans-serif;
-
   font-size: 12px;
 }
 
 .card small {
   color: var(--muted);
-
   font-size: 10px;
-
   line-height: 1.2;
 }
 
@@ -349,41 +291,34 @@ main {
    ========================= */
 
 .back-to-top {
-
   display: block;
-
   width: fit-content;
 
   margin: 32px auto 0;
-
   padding: 9px 16px;
 
   color: var(--muted);
-
   text-decoration: none;
 
   font-family: Orbitron, sans-serif;
-
   font-size: 12px;
 
-  border:
-    1px solid var(--line);
-
+  border: 2px solid rgba(231, 201, 106, .75);
   border-radius: 6px;
 
   background:
     rgba(20,50,80,.2);
 
-  transition:
-    .2s ease;
+  box-shadow:
+    0 0 6px rgba(231, 201, 106, .10);
+
+  transition: .2s ease;
 }
 
 .back-to-top:hover {
-
   color: var(--blue);
 
-  border-color:
-    var(--blue);
+  border-color: var(--blue);
 
   background:
     rgba(88,199,255,.08);
@@ -398,12 +333,9 @@ main {
    ========================= */
 
 .content-box {
-
   padding: 20px;
 
-  border:
-    1px solid rgba(231,201,106,.40);
-
+  border: 2px solid rgba(231, 201, 106, .40);
   border-radius: 8px;
 
   background:
@@ -411,18 +343,15 @@ main {
 }
 
 .content-box hr {
-
   border: 0;
 
   border-top:
     1px solid rgba(231,201,106,.25);
 
-  margin:
-    25px 0;
+  margin: 25px 0;
 }
 
 .placeholder {
-
   padding: 17px 20px;
 
   border-left:
@@ -431,8 +360,7 @@ main {
   background:
     rgba(231,201,106,.055);
 
-  color:
-    var(--muted) !important;
+  color: var(--muted) !important;
 }
 
 
@@ -441,22 +369,17 @@ main {
    ========================= */
 
 .rules-image {
-
   display: block;
 
   width: 100%;
-
   max-width: 750px;
 
   height: auto;
 
-  margin:
-    20px auto 0;
+  margin: 20px auto 0;
 
   border: none;
-
   border-radius: 0;
-
   box-shadow: none;
 
   object-fit: contain;
@@ -468,11 +391,9 @@ main {
    ========================= */
 
 footer {
-
   position: relative;
 
-  padding:
-    28px 20px 45px;
+  padding: 28px 20px 45px;
 
   text-align: center;
 
@@ -490,24 +411,14 @@ footer {
    TABLET
    ========================= */
 
-/*
-   Das 6-Spalten-Raster bleibt hier absichtlich
-   erhalten.
-
-   Dadurch bleiben die Kacheln exakt 1/3 breit
-   und die letzte Reihe exakt zentriert.
-*/
-
 @media (max-width: 900px) and (min-width: 721px) {
 
   .hero {
-    padding:
-      32px 20px 26px;
+    padding: 32px 20px 26px;
   }
 
   .section {
-    padding:
-      28px;
+    padding: 28px;
   }
 
   .cards {
@@ -516,9 +427,7 @@ footer {
 
   .card {
     min-height: 72px;
-
-    padding:
-      8px 10px;
+    padding: 8px 10px;
   }
 
   .card b {
@@ -538,15 +447,11 @@ footer {
 @media (max-width: 720px) {
 
   .hero {
-
-    padding:
-      28px 16px 24px;
-
+    padding: 28px 16px 24px;
     gap: 10px;
   }
 
   .alliance-logo {
-
     width: 300px;
     height: 300px;
   }
@@ -556,7 +461,6 @@ footer {
   }
 
   h1 {
-
     font-size:
       clamp(34px, 10vw, 48px);
   }
@@ -566,17 +470,14 @@ footer {
   }
 
   main {
-
     padding:
       18px 12px 55px;
   }
 
   .section {
-
     padding:
       24px 18px;
   }
-
 
   /*
      Auf dem Handy:
@@ -584,10 +485,7 @@ footer {
   */
 
   .cards {
-
-    grid-template-columns:
-      1fr;
-
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
@@ -601,20 +499,15 @@ footer {
   .card:nth-child(7),
   .card:nth-child(8) {
 
-    grid-column:
-      auto;
+    grid-column: auto;
   }
 
   .card {
-
-    min-height:
-      72px;
+    min-height: 72px;
   }
 
   .rules-image {
-
-    max-width:
-      100%;
+    max-width: 100%;
   }
 }
 
