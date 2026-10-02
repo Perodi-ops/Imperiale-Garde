@@ -14,7 +14,6 @@
   --panel: rgba(10, 22, 42, 0.88);
   --line: rgba(80, 190, 255, 0.35);
   --blue: #58c7ff;
-  --blue2: #1d75ad;
   --gold: #e7c96a;
   --text: #e9f5ff;
   --muted: #9db4c9;
@@ -89,44 +88,6 @@ h1 {
   font: 500 18px Orbitron, sans-serif;
 }
 
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 8px 10px;
-  background: rgba(3, 8, 18, .96);
-  border-top: 1px solid rgba(88,199,255,.15);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(12px);
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.nav::-webkit-scrollbar {
-  display: none;
-}
-
-.nav a {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 7px 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.nav a:hover {
-  color: var(--text);
-  border-color: var(--line);
-  background: rgba(88,199,255,.07);
-}
-
 main {
   position: relative;
   max-width: 1050px;
@@ -141,7 +102,7 @@ main {
   border-radius: 10px;
   background: var(--panel);
   box-shadow: 0 18px 45px rgba(0,0,0,.2);
-  scroll-margin-top: 70px;
+  scroll-margin-top: 30px;
 }
 
 .section h2 {
@@ -169,7 +130,7 @@ main {
   letter-spacing: .06em;
 }
 
-/* Startseiten-Kästen */
+/* STARTSEITEN-KÄSTEN */
 
 .cards {
   display: grid;
@@ -217,38 +178,18 @@ main {
   font-size: 11px;
 }
 
-/*
-   1.–6. Kasten:
-   jeweils 2 von 6 Spalten = drei Kästen pro Reihe
+/* 3 + 3 + 2 KÄSTEN */
 
-   7.–8. Kasten:
-   jeweils 2 von 6 Spalten,
-   zusammen mittig durch grid-column.
-*/
-
-.card:nth-child(1) {
-  grid-column: span 2;
-}
-
-.card:nth-child(2) {
-  grid-column: span 2;
-}
-
-.card:nth-child(3) {
-  grid-column: span 2;
-}
-
-.card:nth-child(4) {
-  grid-column: span 2;
-}
-
-.card:nth-child(5) {
-  grid-column: span 2;
-}
-
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4),
+.card:nth-child(5),
 .card:nth-child(6) {
   grid-column: span 2;
 }
+
+/* letzte Reihe mittig */
 
 .card:nth-child(7) {
   grid-column: 2 / span 2;
@@ -258,21 +199,7 @@ main {
   grid-column: 4 / span 2;
 }
 
-.placeholder {
-  padding: 17px 20px;
-  border-left: 3px solid var(--gold);
-  background: rgba(231,201,106,.055);
-  color: var(--muted) !important;
-}
-
-.content-box {
-  padding: 20px;
-  border: 1px solid rgba(88,199,255,.18);
-  border-radius: 8px;
-  background: rgba(20,50,80,.18);
-}
-
-/* Zurück-zum-Anfang-Link */
+/* ZURÜCK-LINK */
 
 .back-to-top {
   display: block;
@@ -293,6 +220,20 @@ main {
   color: var(--blue);
   border-color: var(--blue);
   background: rgba(88,199,255,.08);
+}
+
+.placeholder {
+  padding: 17px 20px;
+  border-left: 3px solid var(--gold);
+  background: rgba(231,201,106,.055);
+  color: var(--muted) !important;
+}
+
+.content-box {
+  padding: 20px;
+  border: 1px solid rgba(88,199,255,.18);
+  border-radius: 8px;
+  background: rgba(20,50,80,.18);
 }
 
 .rules-image {
@@ -340,16 +281,6 @@ footer {
     font-size: 16px;
   }
 
-  .nav {
-    padding: 7px 8px;
-    gap: 3px;
-  }
-
-  .nav a {
-    padding: 7px 9px;
-    font-size: 13px;
-  }
-
   main {
     padding: 18px 12px 55px;
   }
@@ -387,28 +318,25 @@ footer {
 <div class="stars"></div>
 
 <header class="hero">
+
   <img src="imperiale-garde-emblem.png"
        alt="Imperiale Garde"
        class="alliance-logo">
 
-  <div class="eyebrow">STAR TREK FLEET COMMAND</div>
+  <div class="eyebrow">
+    STAR TREK FLEET COMMAND
+  </div>
 
-  <h1>Imperiale Garde</h1>
+  <h1>
+    Imperiale Garde
+  </h1>
 
-  <p>Allianz-Handbuch</p>
+  <p>
+    Allianz-Handbuch
+  </p>
+
 </header>
 
-<nav class="nav">
-  <a href="#start">Startseite</a>
-  <a href="#regeln">Allianzregeln</a>
-  <a href="#mining">Mining &amp; Ressourcen</a>
-  <a href="#kampf">Kampf &amp; PvP</a>
-  <a href="#armadas">Armadas</a>
-  <a href="#crews">Tipps für Crews</a>
-  <a href="#events">Events &amp; Vorgaben</a>
-  <a href="#spezialschiffe">Spezialschiffe</a>
-  <a href="#faq">FAQ</a>
-</nav>
 
 <main>
 
@@ -416,14 +344,19 @@ footer {
 
 <section id="start" class="section intro">
 
-  <span class="section-tag">BRÜCKE</span>
+  <span class="section-tag">
+    BRÜCKE
+  </span>
 
-  <h2>Willkommen bei der Imperialen Garde</h2>
+  <h2>
+    Willkommen bei der Imperialen Garde
+  </h2>
 
   <p>
     Dieses Handbuch sammelt die wichtigsten Regeln,
     Vorgaben und Tipps unserer Allianz an einem Ort.
   </p>
+
 
   <div class="cards">
 
@@ -484,9 +417,13 @@ footer {
 
 <section id="regeln" class="section">
 
-  <span class="section-tag">DIREKTIVE 01</span>
+  <span class="section-tag">
+    DIREKTIVE 01
+  </span>
 
-  <h2>Allianzregeln</h2>
+  <h2>
+    Allianzregeln
+  </h2>
 
   <img src="IMG_3998.png"
        alt="Kampfregeln des Servers"
@@ -503,9 +440,13 @@ footer {
 
 <section id="mining" class="section">
 
-  <span class="section-tag">RESSOURCEN</span>
+  <span class="section-tag">
+    RESSOURCEN
+  </span>
 
-  <h2>Mining &amp; Ressourcen</h2>
+  <h2>
+    Mining &amp; Ressourcen
+  </h2>
 
   <p class="placeholder">
     Hier werden später G3/G4-Regeln, Mining-Gebiete
@@ -523,9 +464,13 @@ footer {
 
 <section id="kampf" class="section">
 
-  <span class="section-tag">TAKTIK</span>
+  <span class="section-tag">
+    TAKTIK
+  </span>
 
-  <h2>Kampf &amp; PvP</h2>
+  <h2>
+    Kampf &amp; PvP
+  </h2>
 
   <p class="placeholder">
     Hier kommen später PvP-Regeln, Angriffs-
@@ -543,15 +488,24 @@ footer {
 
 <section id="armadas" class="section">
 
-  <span class="section-tag">FLOTTENOPERATIONEN</span>
+  <span class="section-tag">
+    FLOTTENOPERATIONEN
+  </span>
 
-  <h2>Armadas</h2>
+  <h2>
+    Armadas
+  </h2>
 
-  <h3>Grundsätzliches</h3>
+  <h3>
+    Grundsätzliches
+  </h3>
+
 
   <div class="content-box">
 
-    <h3>🚀 Teilnahme</h3>
+    <h3>
+      🚀 Teilnahme
+    </h3>
 
     <p>
       Nur eine begrenzte Anzahl von Spielern kann an einer Armada teilnehmen
@@ -588,9 +542,13 @@ footer {
       <strong>2/3 der Gesamtstärke der Armada</strong> betragen.
     </p>
 
+
     <hr>
 
-    <h3>👥 Vergabe der Plätze</h3>
+
+    <h3>
+      👥 Vergabe der Plätze
+    </h3>
 
     <p>
       Oft gibt es mehr interessierte Spieler als freie Plätze.
@@ -612,12 +570,18 @@ footer {
     </p>
 
     <p>
-      <strong>Bitte nehmt Rücksicht aufeinander.</strong>
+      <strong>
+        Bitte nehmt Rücksicht aufeinander.
+      </strong>
     </p>
+
 
     <hr>
 
-    <h3>🌑 Eclipse-Armadas</h3>
+
+    <h3>
+      🌑 Eclipse-Armadas
+    </h3>
 
     <p>
       Für <strong>Eclipse-Armadas</strong> gilt bei Selten/Episch
@@ -625,6 +589,7 @@ footer {
     </p>
 
     <ul>
+
       <li>
         Ausschließlich das Schiff <strong>Stella</strong> verwenden.
       </li>
@@ -637,6 +602,7 @@ footer {
         Wer eine <strong>Stella</strong> besitzt, muss diese auch einsetzen –
         unabhängig davon, ob die Armada grün, blau oder lila ist.
       </li>
+
     </ul>
 
     <p>
@@ -644,7 +610,9 @@ footer {
     </p>
 
     <p>
-      <strong>„+“ + Kürzel des Starters</strong>
+      <strong>
+        „+“ + Kürzel des Starters
+      </strong>
     </p>
 
     <p>
@@ -661,9 +629,13 @@ footer {
       Eclipse-Armada mangels Teilnehmern platzt.
     </p>
 
+
     <hr>
 
-    <h3>🟨🟥 Verstöße</h3>
+
+    <h3>
+      🟨🟥 Verstöße
+    </h3>
 
     <p>
       Verstöße gegen diese Regeln werden zunächst mit einer
@@ -682,11 +654,15 @@ footer {
 
   </div>
 
-  <h3>Armadaformationen</h3>
+
+  <h3>
+    Armadaformationen
+  </h3>
 
   <p class="placeholder">
     Hier können später bewährte Armadaformationen dargestellt werden.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -699,9 +675,13 @@ footer {
 
 <section id="crews" class="section">
 
-  <span class="section-tag">OFFIZIERE</span>
+  <span class="section-tag">
+    OFFIZIERE
+  </span>
 
-  <h2>Tipps für Crews</h2>
+  <h2>
+    Tipps für Crews
+  </h2>
 
   <p class="placeholder">
     Crew-Empfehlungen für Farming, PvE, PvP
@@ -719,9 +699,13 @@ footer {
 
 <section id="events" class="section">
 
-  <span class="section-tag">MISSIONEN</span>
+  <span class="section-tag">
+    MISSIONEN
+  </span>
 
-  <h2>Events &amp; Vorgaben</h2>
+  <h2>
+    Events &amp; Vorgaben
+  </h2>
 
   <p class="placeholder">
     Hier kommen später Allianz-Events, Eventregeln
@@ -739,9 +723,13 @@ footer {
 
 <section id="spezialschiffe" class="section">
 
-  <span class="section-tag">SPEZIALFLOTTEN</span>
+  <span class="section-tag">
+    SPEZIALFLOTTEN
+  </span>
 
-  <h2>Spezialschiffe</h2>
+  <h2>
+    Spezialschiffe
+  </h2>
 
   <p class="placeholder">
     Dieser Bereich kann später um einzelne Spezialschiffe,
@@ -759,9 +747,13 @@ footer {
 
 <section id="faq" class="section">
 
-  <span class="section-tag">DATENBANK</span>
+  <span class="section-tag">
+    DATENBANK
+  </span>
 
-  <h2>FAQ</h2>
+  <h2>
+    FAQ
+  </h2>
 
   <p class="placeholder">
     Häufige Fragen und kurze Antworten für Mitglieder.
@@ -778,48 +770,15 @@ footer {
 
 <footer>
 
-  <div>IMPERIALE GARDE · ALLIANZ-HANDBUCH</div>
+  <div>
+    IMPERIALE GARDE · ALLIANZ-HANDBUCH
+  </div>
 
-  <div>Star Trek Fleet Command · Fanprojekt</div>
+  <div>
+    Star Trek Fleet Command · Fanprojekt
+  </div>
 
 </footer>
 
-
-<script>
-
-const sections = [...document.querySelectorAll('main section')];
-const links = [...document.querySelectorAll('.nav a')];
-
-const observer = new IntersectionObserver((entries) => {
-
-  entries.forEach(entry => {
-
-    if (entry.isIntersecting) {
-
-      links.forEach(link => {
-        link.style.color = '';
-      });
-
-      const active =
-        document.querySelector(
-          `.nav a[href="#${entry.target.id}"]`
-        );
-
-      if (active) {
-        active.style.color = '#58c7ff';
-      }
-
-    }
-
-  });
-
-}, {
-  rootMargin: '-20% 0px -65% 0px'
-});
-
-sections.forEach(section => observer.observe(section));
-
-</script>
-
 </body>
-</html>
+  </html>
