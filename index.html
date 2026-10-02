@@ -32,16 +32,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(25, 100, 170, .22),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 80% 30%,
-      rgba(90, 40, 150, .14),
-      transparent 30%
-    ),
+    radial-gradient(circle at 20% 10%, rgba(25, 100, 170, .22), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(90, 40, 150, .14), transparent 30%),
     var(--bg);
   font-family: Roboto, Arial, sans-serif;
   line-height: 1.65;
@@ -53,35 +45,21 @@ body {
   inset: 0;
   pointer-events: none;
   opacity: .45;
-
   background-image:
     radial-gradient(circle, #fff 1px, transparent 1px),
     radial-gradient(circle, #7fd7ff 1px, transparent 1px);
-
-  background-size:
-    97px 113px,
-    151px 173px;
-
-  background-position:
-    10px 20px,
-    60px 80px;
+  background-size: 97px 113px, 151px 173px;
+  background-position: 10px 20px, 60px 80px;
 }
-
-
-/* =========================
-   HEADER
-   ========================= */
 
 .hero {
   position: relative;
   max-width: 1180px;
   margin: auto;
   padding: 42px 24px 30px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
   gap: 12px;
 }
@@ -90,12 +68,9 @@ body {
   width: 300px;
   height: 300px;
   object-fit: contain;
-
   border-radius: 50%;
-  border: 2px solid var(--line);
-
-  box-shadow:
-    0 0 12px rgba(231, 201, 106, .22);
+  border: 4px solid var(--line);
+  box-shadow: 0 0 16px rgba(231, 201, 106, .28);
 }
 
 .eyebrow {
@@ -117,11 +92,6 @@ h1 {
   font: 500 18px Orbitron, sans-serif;
 }
 
-
-/* =========================
-   HAUPTBEREICH
-   ========================= */
-
 main {
   position: relative;
   max-width: 1050px;
@@ -132,16 +102,12 @@ main {
 .section {
   margin: 24px 0;
   padding: 34px;
-
-  border: 2px solid var(--line);
+  border: 4px solid var(--line);
   border-radius: 10px;
-
   background: var(--panel);
-
   box-shadow:
-    0 0 8px rgba(231, 201, 106, .18),
+    0 0 12px rgba(231, 201, 106, .25),
     0 18px 45px rgba(0,0,0,.2);
-
   scroll-margin-top: 30px;
 }
 
@@ -170,25 +136,9 @@ main {
   letter-spacing: .06em;
 }
 
-
-/* =========================
-   STARTSEITEN-KÄSTEN
-   ========================= */
-
 .cards {
   display: grid;
-
-  /*
-     6 Spalten.
-     Jede Kachel belegt 2 Spalten.
-     Dadurch entspricht die Breite
-     weiterhin dem ursprünglichen
-     3-Spalten-Layout.
-  */
-
-  grid-template-columns:
-    repeat(6, minmax(0, 1fr));
-
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 15px;
   margin-top: 28px;
 }
@@ -197,29 +147,18 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   gap: 2px;
-
   min-height: 72px;
   padding: 8px 12px;
-
   color: var(--text);
   text-decoration: none;
   text-align: center;
-
-  border: 2px solid rgba(231, 201, 106, .85);
+  border: 4px solid rgba(231, 201, 106, .95);
   border-radius: 8px;
-
   background: rgba(20,50,80,.28);
-
-  box-shadow:
-    0 0 7px rgba(231, 201, 106, .12);
-
+  box-shadow: 0 0 10px rgba(231, 201, 106, .18);
   transition: .2s ease;
 }
-
-
-/* Jede Kachel = 2 von 6 Spalten */
 
 .card:nth-child(1),
 .card:nth-child(2),
@@ -232,18 +171,6 @@ main {
   grid-column: span 2;
 }
 
-
-/*
-   Letzte Reihe:
-
-   Spalte 1 bleibt frei.
-   Kachel 7 = Spalten 2–3.
-   Kachel 8 = Spalten 4–5.
-   Spalte 6 bleibt frei.
-
-   Dadurch exakt mittig.
-*/
-
 .card:nth-child(7) {
   grid-column: 2 / span 2;
 }
@@ -252,20 +179,11 @@ main {
   grid-column: 4 / span 2;
 }
 
-
-/* Hover */
-
 .card:hover {
   color: var(--text);
-
   border-color: var(--blue);
-
-  background:
-    rgba(88,199,255,.09);
-
-  box-shadow:
-    0 0 18px rgba(88,199,255,.22);
-
+  background: rgba(88,199,255,.09);
+  box-shadow: 0 0 18px rgba(88,199,255,.22);
   transform: translateY(-2px);
 }
 
@@ -285,131 +203,69 @@ main {
   line-height: 1.2;
 }
 
-
-/* =========================
-   ZURÜCK ZUM ANFANG
-   ========================= */
-
 .back-to-top {
   display: block;
   width: fit-content;
-
   margin: 32px auto 0;
   padding: 9px 16px;
-
   color: var(--muted);
   text-decoration: none;
-
   font-family: Orbitron, sans-serif;
   font-size: 12px;
-
-  border: 2px solid rgba(231, 201, 106, .75);
+  border: 4px solid rgba(231, 201, 106, .9);
   border-radius: 6px;
-
-  background:
-    rgba(20,50,80,.2);
-
-  box-shadow:
-    0 0 6px rgba(231, 201, 106, .10);
-
+  background: rgba(20,50,80,.2);
+  box-shadow: 0 0 8px rgba(231, 201, 106, .14);
   transition: .2s ease;
 }
 
 .back-to-top:hover {
   color: var(--blue);
-
   border-color: var(--blue);
-
-  background:
-    rgba(88,199,255,.08);
-
-  box-shadow:
-    0 0 14px rgba(88,199,255,.15);
+  background: rgba(88,199,255,.08);
+  box-shadow: 0 0 14px rgba(88,199,255,.15);
 }
-
-
-/* =========================
-   INHALTSBOX
-   ========================= */
 
 .content-box {
   padding: 20px;
-
-  border: 2px solid rgba(231, 201, 106, .40);
+  border: 4px solid rgba(231, 201, 106, .55);
   border-radius: 8px;
-
-  background:
-    rgba(20,50,80,.18);
+  background: rgba(20,50,80,.18);
 }
 
 .content-box hr {
   border: 0;
-
-  border-top:
-    1px solid rgba(231,201,106,.25);
-
+  border-top: 1px solid rgba(231,201,106,.25);
   margin: 25px 0;
 }
 
 .placeholder {
   padding: 17px 20px;
-
-  border-left:
-    3px solid var(--gold);
-
-  background:
-    rgba(231,201,106,.055);
-
+  border-left: 4px solid var(--gold);
+  background: rgba(231,201,106,.055);
   color: var(--muted) !important;
 }
 
-
-/* =========================
-   REGELBILD
-   ========================= */
-
 .rules-image {
   display: block;
-
   width: 100%;
   max-width: 750px;
-
   height: auto;
-
   margin: 20px auto 0;
-
   border: none;
   border-radius: 0;
   box-shadow: none;
-
   object-fit: contain;
 }
 
-
-/* =========================
-   FOOTER
-   ========================= */
-
 footer {
   position: relative;
-
   padding: 28px 20px 45px;
-
   text-align: center;
-
   color: #71879a;
-
-  font:
-    10px Orbitron,
-    sans-serif;
-
+  font: 10px Orbitron, sans-serif;
   letter-spacing: .08em;
 }
-
-
-/* =========================
-   TABLET
-   ========================= */
 
 @media (max-width: 900px) and (min-width: 721px) {
 
@@ -439,11 +295,6 @@ footer {
   }
 }
 
-
-/* =========================
-   HANDY
-   ========================= */
-
 @media (max-width: 720px) {
 
   .hero {
@@ -461,8 +312,7 @@ footer {
   }
 
   h1 {
-    font-size:
-      clamp(34px, 10vw, 48px);
+    font-size: clamp(34px, 10vw, 48px);
   }
 
   .hero p {
@@ -470,19 +320,12 @@ footer {
   }
 
   main {
-    padding:
-      18px 12px 55px;
+    padding: 18px 12px 55px;
   }
 
   .section {
-    padding:
-      24px 18px;
+    padding: 24px 18px;
   }
-
-  /*
-     Auf dem Handy:
-     eine Kachel pro Zeile.
-  */
 
   .cards {
     grid-template-columns: 1fr;
@@ -498,7 +341,6 @@ footer {
   .card:nth-child(6),
   .card:nth-child(7),
   .card:nth-child(8) {
-
     grid-column: auto;
   }
 
@@ -514,15 +356,9 @@ footer {
 </style>
 </head>
 
-
 <body>
 
 <div class="stars"></div>
-
-
-<!-- =========================
-     HEADER
-     ========================= -->
 
 <header class="hero">
 
@@ -549,10 +385,6 @@ footer {
 
 <main>
 
-
-<!-- =========================
-     STARTSEITE
-     ========================= -->
 
 <section id="start" class="section intro">
 
@@ -698,10 +530,6 @@ footer {
 </section>
 
 
-<!-- =========================
-     ALLIANZREGELN
-     ========================= -->
-
 <section id="regeln" class="section">
 
   <span class="section-tag">
@@ -712,11 +540,13 @@ footer {
     Allianzregeln
   </h2>
 
+
   <img
     src="IMG_3998.png"
     alt="Kampfregeln des Servers"
     class="rules-image"
   >
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -724,10 +554,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     MINING
-     ========================= -->
 
 <section id="mining" class="section">
 
@@ -739,10 +565,12 @@ footer {
     Mining &amp; Ressourcen
   </h2>
 
+
   <p class="placeholder">
     Hier werden später G3/G4-Regeln, Mining-Gebiete
     und besondere Vorgaben eingetragen.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -750,10 +578,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     KAMPF
-     ========================= -->
 
 <section id="kampf" class="section">
 
@@ -765,10 +589,12 @@ footer {
     Kampf &amp; PvP
   </h2>
 
+
   <p class="placeholder">
     Hier kommen später PvP-Regeln, Angriffs-
     und Verteidigungsvorgaben hinein.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -776,10 +602,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     ARMADAS
-     ========================= -->
 
 <section id="armadas" class="section">
 
@@ -790,6 +612,7 @@ footer {
   <h2>
     Armadas
   </h2>
+
 
   <h3>
     Grundsätzliches
@@ -900,8 +723,7 @@ footer {
     <ul>
 
       <li>
-        Ausschließlich das Schiff
-        <strong>Stella</strong> verwenden.
+        Ausschließlich das Schiff <strong>Stella</strong> verwenden.
       </li>
 
       <li>
@@ -994,10 +816,6 @@ footer {
 </section>
 
 
-<!-- =========================
-     CREWS
-     ========================= -->
-
 <section id="crews" class="section">
 
   <span class="section-tag">
@@ -1008,10 +826,12 @@ footer {
     Tipps für Crews
   </h2>
 
+
   <p class="placeholder">
     Crew-Empfehlungen für Farming, PvE, PvP
     und besondere Situationen.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -1019,10 +839,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     EVENTS
-     ========================= -->
 
 <section id="events" class="section">
 
@@ -1034,10 +850,12 @@ footer {
     Events &amp; Vorgaben
   </h2>
 
+
   <p class="placeholder">
     Hier kommen später Allianz-Events, Eventregeln
     und besondere Vorgaben hinein.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -1045,10 +863,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     SPEZIALSCHIFFE
-     ========================= -->
 
 <section id="spezialschiffe" class="section">
 
@@ -1060,10 +874,12 @@ footer {
     Spezialschiffe
   </h2>
 
+
   <p class="placeholder">
     Dieser Bereich kann später um einzelne Spezialschiffe,
     Einsatzgebiete und Tipps erweitert werden.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -1071,10 +887,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     FAQ
-     ========================= -->
 
 <section id="faq" class="section">
 
@@ -1086,9 +898,11 @@ footer {
     FAQ
   </h2>
 
+
   <p class="placeholder">
     Häufige Fragen und kurze Antworten für Mitglieder.
   </p>
+
 
   <a class="back-to-top" href="#start">
     ⬆ Zurück zum Anfang
@@ -1111,6 +925,7 @@ footer {
   </div>
 
 </footer>
+
 
 </body>
 </html>
