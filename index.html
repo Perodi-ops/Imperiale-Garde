@@ -3,110 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Imperiale Garde – Allianz-Handbuch</title>
-<meta name="description" content="Allianz-Handbuch der Imperialen Garde für Star Trek Fleet Command">
+
+<meta
+  name="description"
+  content="Allianz-Handbuch der Imperialen Garde für Star Trek Fleet Command"
+>
 
 <style>
+
+/* =========================================================
+   GRUNDLAGEN
+   ========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
 
 :root {
   --bg: #050914;
+  --bg-light: #091426;
+
   --panel: rgba(10, 22, 42, 0.88);
+  --panel-light: rgba(20, 50, 80, 0.20);
+
   --line: rgba(80, 190, 255, 0.35);
+  --line-soft: rgba(88, 199, 255, 0.18);
+
   --blue: #58c7ff;
-  --blue2: #1d75ad;
+  --blue-dark: #1d75ad;
+
   --gold: #e7c96a;
+
   --text: #e9f5ff;
+  --text-soft: #c7d9e8;
   --muted: #9db4c9;
+
+  --radius: 10px;
+  --content-width: 1050px;
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 75px;
+}
+
 body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 20% 10%, rgba(25, 100, 170, .22), transparent 28%),
-    radial-gradient(circle at 80% 30%, rgba(90, 40, 150, .14), transparent 30%),
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(25, 100, 170, .22),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(90, 40, 150, .14),
+      transparent 30%
+    ),
     var(--bg);
+
   font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.65;
+
   overflow-x: hidden;
 }
+
+img {
+  max-width: 100%;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   STERNE / HINTERGRUND
+   ========================================================= */
 
 .stars {
   position: fixed;
   inset: 0;
+
   pointer-events: none;
+
   opacity: .45;
+
   background-image:
     radial-gradient(circle, #fff 1px, transparent 1px),
     radial-gradient(circle, #7fd7ff 1px, transparent 1px);
-  background-size: 97px 113px, 151px 173px;
-  background-position: 10px 20px, 60px 80px;
+
+  background-size:
+    97px 113px,
+    151px 173px;
+
+  background-position:
+    10px 20px,
+    60px 80px;
+
+  z-index: 0;
 }
 
-/* KOPFBEREICH */
+
+/* =========================================================
+   KOPFBEREICH
+   ========================================================= */
 
 .hero {
   position: relative;
+  z-index: 1;
+
   max-width: 1180px;
   margin: auto;
+
   padding: 42px 24px 30px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   text-align: center;
+
   gap: 12px;
 }
+
+
+/* Allianz-Emblem */
 
 .alliance-logo {
   width: 135px;
   height: 135px;
+
   object-fit: contain;
+
   border-radius: 50%;
+
   border: 1px solid var(--line);
-  box-shadow: 0 0 28px rgba(88,199,255,.12);
+
+  box-shadow:
+    0 0 28px rgba(88,199,255,.12);
 }
+
+
+/* STAR TREK FLEET COMMAND */
 
 .eyebrow {
   margin-top: 4px;
+
   font-family: Orbitron, sans-serif;
+
   font-size: clamp(18px, 3vw, 30px);
+
   font-weight: 400;
+
+  letter-spacing: .03em;
 }
 
-h1 {
+
+/* IMPERIALE GARDE */
+
+.hero h1 {
   margin: 4px 0 0;
+
+  font-family: Orbitron, sans-serif;
+
   font-size: clamp(36px, 7vw, 62px);
+
   line-height: 1.15;
+
+  font-weight: 600;
 }
 
-.hero p {
+
+/* Allianz-Handbuch */
+
+.hero-subtitle {
   margin: 8px 0 0;
+
   color: var(--gold);
-  font: 500 18px Orbitron, sans-serif;
+
+  font-family: Orbitron, sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 500;
 }
 
-/* MENÜ */
+
+/* =========================================================
+   HAUPTMENÜ
+   ========================================================= */
 
 .nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+
+  z-index: 20;
+
   display: flex;
+
   gap: 4px;
+
   overflow-x: auto;
   overflow-y: hidden;
+
   padding: 8px 10px;
+
   background: rgba(3, 8, 18, .96);
-  border-top: 1px solid rgba(88,199,255,.15);
-  border-bottom: 1px solid var(--line);
+
+  border-top:
+    1px solid rgba(88,199,255,.15);
+
+  border-bottom:
+    1px solid var(--line);
+
   backdrop-filter: blur(12px);
+
   -webkit-overflow-scrolling: touch;
+
   scrollbar-width: none;
 }
 
@@ -114,176 +239,481 @@ h1 {
   display: none;
 }
 
+
 .nav a {
   flex: 0 0 auto;
+
   white-space: nowrap;
+
   color: var(--muted);
+
   text-decoration: none;
+
   padding: 7px 10px;
+
   border: 1px solid transparent;
+
   border-radius: 5px;
+
   font-size: 14px;
+
+  transition:
+    color .2s ease,
+    background .2s ease,
+    border-color .2s ease;
 }
 
-.nav a:hover {
-  color: var(--text);
+
+.nav a:hover,
+.nav a.active {
+  color: var(--blue);
+
   border-color: var(--line);
+
   background: rgba(88,199,255,.07);
 }
 
-/* INHALT */
+
+/* =========================================================
+   HAUPTINHALT
+   ========================================================= */
 
 main {
   position: relative;
-  max-width: 1050px;
+  z-index: 1;
+
+  width: 100%;
+  max-width: var(--content-width);
+
   margin: auto;
+
   padding: 25px 20px 70px;
 }
 
+
+/* =========================================================
+   SEKTIONS-KARTEN
+   ========================================================= */
+
 .section {
   margin: 24px 0;
+
   padding: 34px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: var(--radius);
+
   background: var(--panel);
-  box-shadow: 0 18px 45px rgba(0,0,0,.2);
-  scroll-margin-top: 70px;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.20);
+
+  scroll-margin-top: 75px;
 }
+
 
 .section h2 {
   margin: 5px 0 12px;
+
+  font-family: Orbitron, sans-serif;
+
   font-size: clamp(22px, 4vw, 32px);
+
+  line-height: 1.25;
 }
+
 
 .section h3 {
-  color: var(--gold);
   margin-top: 28px;
+
+  color: var(--gold);
+
+  font-family: Orbitron, sans-serif;
+
+  font-size: 18px;
 }
+
 
 .section p {
-  color: #c7d9e8;
+  color: var(--text-soft);
 }
+
+
+/* Startseite etwas hervorheben */
 
 .intro {
-  border-color: rgba(231,201,106,.35);
+  border-color:
+    rgba(231,201,106,.35);
 }
 
+
+/* Kleine Überschrift über dem Titel */
+
 .section-tag {
-  font-family: Orbitron, sans-serif;
+  display: block;
+
   color: var(--gold);
+
+  font-family: Orbitron, sans-serif;
+
   font-size: 13px;
+
   letter-spacing: .06em;
 }
 
+
+/* =========================================================
+   STARTSEITE – KARTEN
+   ========================================================= */
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 15px;
+
   margin-top: 25px;
 }
 
+
 .card {
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
+
   padding: 20px;
+
   color: var(--text);
+
   text-decoration: none;
-  border: 1px solid rgba(88,199,255,.22);
+
+  border:
+    1px solid rgba(88,199,255,.22);
+
   border-radius: 8px;
-  background: rgba(20,50,80,.28);
+
+  background:
+    rgba(20,50,80,.28);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
 }
 
-.card span {
+
+.card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(88,199,255,.55);
+
+  background:
+    rgba(20,50,80,.40);
+}
+
+
+.card-icon {
   font-size: 27px;
+  line-height: 1;
 }
 
-.card b {
+
+.card-title {
   font-family: Orbitron, sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.card-description {
+  color: var(--muted);
+
   font-size: 14px;
 }
 
-.card small {
-  color: var(--muted);
-}
 
-.placeholder {
-  padding: 17px 20px;
-  border-left: 3px solid var(--gold);
-  background: rgba(231,201,106,.055);
-  color: var(--muted) !important;
-}
+/* =========================================================
+   ALLGEMEINE INFO-BOX
+   ========================================================= */
 
 .content-box {
   padding: 20px;
-  border: 1px solid rgba(88,199,255,.18);
+
+  border:
+    1px solid var(--line-soft);
+
   border-radius: 8px;
-  background: rgba(20,50,80,.18);
+
+  background:
+    var(--panel-light);
 }
+
+
+.content-box hr {
+  margin: 30px 0;
+
+  border: 0;
+
+  border-top:
+    1px solid rgba(88,199,255,.18);
+}
+
+
+.content-box ul {
+  color: var(--text-soft);
+
+  padding-left: 25px;
+}
+
+
+.content-box li {
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   PLATZHALTER FÜR NOCH NICHT AUSGEBAUTE BEREICHE
+   ========================================================= */
+
+.placeholder {
+  padding: 17px 20px;
+
+  border-left:
+    3px solid var(--gold);
+
+  background:
+    rgba(231,201,106,.055);
+
+  color: var(--muted) !important;
+
+  border-radius: 0 6px 6px 0;
+}
+
+
+/* =========================================================
+   REGEL-TAFEL
+   ========================================================= */
+
+/*
+   Auf PC und Tablet wird die Tafel bewusst begrenzt.
+   Dadurch entsteht nicht mehr dieses riesige Bildfeld.
+
+   Auf kleinen Bildschirmen wird die Begrenzung aufgehoben,
+   sodass die Tafel die verfügbare Breite nutzen kann.
+*/
+
+.rules-image {
+  display: block;
+
+  width: 100%;
+
+  max-width: 750px;
+
+  height: auto;
+
+  margin: 20px auto 0;
+
+  border-radius: 12px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   position: relative;
+  z-index: 1;
+
   padding: 28px 20px 45px;
+
   text-align: center;
+
   color: #71879a;
-  font: 10px Orbitron, sans-serif;
+
+  font-family: Orbitron, sans-serif;
+
+  font-size: 10px;
+
   letter-spacing: .08em;
 }
 
-/* HANDY */
+
+.footer-line {
+  margin: 4px 0;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section {
+    padding: 28px;
+  }
+
+  .cards {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   HANDY
+   ========================================================= */
 
 @media (max-width: 720px) {
 
   .hero {
-    padding: 28px 16px 24px;
+    padding:
+      28px 16px 24px;
+
     gap: 10px;
   }
+
+
+  /*
+     Das große Allianz-Emblem bleibt auf dem Handy
+     bewusst groß.
+  */
 
   .alliance-logo {
     width: 300px;
     height: 300px;
   }
 
+
   .eyebrow {
     font-size: 17px;
   }
 
-  h1 {
-    font-size: clamp(34px, 10vw, 48px);
+
+  .hero h1 {
+    font-size:
+      clamp(34px, 10vw, 48px);
   }
 
-  .hero p {
+
+  .hero-subtitle {
     font-size: 16px;
   }
 
+
   .nav {
     padding: 7px 8px;
+
     gap: 3px;
   }
 
+
   .nav a {
     padding: 7px 9px;
+
     font-size: 13px;
   }
 
+
   main {
-    padding: 18px 12px 55px;
+    padding:
+      18px 12px 55px;
   }
 
+
   .section {
-    padding: 24px 18px;
+    padding:
+      24px 18px;
   }
+
 
   .cards {
     grid-template-columns: 1fr;
   }
+
+
+  /*
+     Auf dem Handy darf die Regeln-Tafel
+     die komplette verfügbare Breite nutzen.
+  */
+
+  .rules-image {
+    max-width: 100%;
+  }
+
 }
+
+
+/* =========================================================
+   SEHR KLEINE HANDYS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .alliance-logo {
+    width: 250px;
+    height: 250px;
+  }
+
+  .section {
+    padding:
+      20px 15px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUZIERTE ANIMATIONEN
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =======================================================
+     HINTERGRUND
+     ======================================================= -->
+
 <div class="stars"></div>
+
+
+<!-- =======================================================
+     KOPFBEREICH
+     ======================================================= -->
 
 <header class="hero">
 
@@ -297,31 +727,78 @@ footer {
     STAR TREK FLEET COMMAND
   </div>
 
-  <h1>Imperiale Garde</h1>
+  <h1>
+    Imperiale Garde
+  </h1>
 
-  <p>Allianz-Handbuch</p>
+  <p class="hero-subtitle">
+    Allianz-Handbuch
+  </p>
 
 </header>
 
+
+<!-- =======================================================
+     NAVIGATION
+     ======================================================= -->
+
 <nav class="nav">
 
-  <a href="#start">Startseite</a>
-  <a href="#regeln">Allianzregeln</a>
-  <a href="#mining">Mining &amp; Ressourcen</a>
-  <a href="#kampf">Kampf &amp; PvP</a>
-  <a href="#armadas">Armadas</a>
-  <a href="#crews">Tipps für Crews</a>
-  <a href="#events">Events &amp; Vorgaben</a>
-  <a href="#spezialschiffe">Spezialschiffe</a>
-  <a href="#faq">FAQ</a>
+  <a href="#start">
+    Startseite
+  </a>
+
+  <a href="#regeln">
+    Allianzregeln
+  </a>
+
+  <a href="#mining">
+    Mining &amp; Ressourcen
+  </a>
+
+  <a href="#kampf">
+    Kampf &amp; PvP
+  </a>
+
+  <a href="#armadas">
+    Armadas
+  </a>
+
+  <a href="#crews">
+    Tipps für Crews
+  </a>
+
+  <a href="#events">
+    Events &amp; Vorgaben
+  </a>
+
+  <a href="#spezialschiffe">
+    Spezialschiffe
+  </a>
+
+  <a href="#faq">
+    FAQ
+  </a>
 
 </nav>
 
+
+<!-- =======================================================
+     HAUPTINHALT
+     ======================================================= -->
+
 <main>
+
+
+<!-- =======================================================
+     STARTSEITE
+     ======================================================= -->
 
 <section id="start" class="section intro">
 
-  <span class="section-tag">BRÜCKE</span>
+  <span class="section-tag">
+    BRÜCKE
+  </span>
 
   <h2>
     Willkommen bei der Imperialen Garde
@@ -332,51 +809,110 @@ footer {
     Vorgaben und Tipps unserer Allianz an einem Ort.
   </p>
 
+
   <div class="cards">
 
+
     <a class="card" href="#regeln">
-      <span>📜</span>
-      <b>Allianzregeln</b>
-      <small>Gemeinsame Regeln und Vorgaben</small>
+
+      <span class="card-icon">
+        📜
+      </span>
+
+      <span class="card-title">
+        Allianzregeln
+      </span>
+
+      <span class="card-description">
+        Gemeinsame Regeln und Vorgaben
+      </span>
+
     </a>
+
 
     <a class="card" href="#armadas">
-      <span>🚀</span>
-      <b>Armadas</b>
-      <small>Grundsätzliches und Formationen</small>
+
+      <span class="card-icon">
+        🚀
+      </span>
+
+      <span class="card-title">
+        Armadas
+      </span>
+
+      <span class="card-description">
+        Grundsätzliches und Formationen
+      </span>
+
     </a>
 
+
     <a class="card" href="#crews">
-      <span>👨‍🚀</span>
-      <b>Crew-Tipps</b>
-      <small>Hilfreiche Crew-Zusammenstellungen</small>
+
+      <span class="card-icon">
+        👨‍🚀
+      </span>
+
+      <span class="card-title">
+        Crew-Tipps
+      </span>
+
+      <span class="card-description">
+        Hilfreiche Crew-Zusammenstellungen
+      </span>
+
     </a>
+
 
   </div>
 
 </section>
 
 
+<!-- =======================================================
+     ALLIANZREGELN
+     ======================================================= -->
+
 <section id="regeln" class="section">
 
-  <span class="section-tag">DIREKTIVE 01</span>
+  <span class="section-tag">
+    DIREKTIVE 01
+  </span>
 
-  <h2>Allianzregeln</h2>
+  <h2>
+    Allianzregeln
+  </h2>
+
+
+  <!--
+       REGEL-TAFEL
+
+       Auf PC/Tablet max. 750 px.
+       Auf Handy volle verfügbare Breite.
+  -->
 
   <img
     src="IMG_3998.png"
     alt="Kampfregeln des Servers"
-    style="width:100%; border-radius:12px;"
+    class="rules-image"
   >
 
 </section>
 
 
+<!-- =======================================================
+     MINING
+     ======================================================= -->
+
 <section id="mining" class="section">
 
-  <span class="section-tag">RESSOURCEN</span>
+  <span class="section-tag">
+    RESSOURCEN
+  </span>
 
-  <h2>Mining &amp; Ressourcen</h2>
+  <h2>
+    Mining &amp; Ressourcen
+  </h2>
 
   <p class="placeholder">
     Hier werden später G3/G4-Regeln, Mining-Gebiete
@@ -386,42 +922,70 @@ footer {
 </section>
 
 
+<!-- =======================================================
+     KAMPF
+     ======================================================= -->
+
 <section id="kampf" class="section">
 
-  <span class="section-tag">TAKTIK</span>
+  <span class="section-tag">
+    TAKTIK
+  </span>
 
-  <h2>Kampf &amp; PvP</h2>
+  <h2>
+    Kampf &amp; PvP
+  </h2>
 
   <p class="placeholder">
-    Hier kommen später PvP-Regeln, Angriffs-
-    und Verteidigungsvorgaben hinein.
+    Hier kommen später PvP-Regeln,
+    Angriffs- und Verteidigungsvorgaben hinein.
   </p>
 
 </section>
 
 
+<!-- =======================================================
+     ARMADAS
+     ======================================================= -->
+
 <section id="armadas" class="section">
 
-  <span class="section-tag">FLOTTENOPERATIONEN</span>
+  <span class="section-tag">
+    FLOTTENOPERATIONEN
+  </span>
 
-  <h2>Armadas</h2>
+  <h2>
+    Armadas
+  </h2>
 
-  <h3>Grundsätzliches</h3>
+
+  <h3>
+    Grundsätzliches
+  </h3>
+
 
   <div class="content-box">
 
-    <h3>🚀 Teilnahme</h3>
+
+    <!-- TEILNAHME -->
+
+    <h3>
+      🚀 Teilnahme
+    </h3>
+
 
     <p>
       Nur eine begrenzte Anzahl von Spielern kann an einer Armada teilnehmen
-      (<strong>2–7 Spieler</strong>). Je höher die Stufe des Armada-Kontrollzentrums,
-      desto mehr Plätze stehen zur Verfügung.
+      (<strong>2–7 Spieler</strong>). Je höher die Stufe des
+      Armada-Kontrollzentrums, desto mehr Plätze stehen zur Verfügung.
     </p>
+
 
     <p>
       Wenn du eine Armada starten möchtest,
       <strong>kündige sie im Allianz-Chat an.</strong>
     </p>
+
 
     <p>
       Wenn du einer Armada beitreten möchtest,
@@ -429,124 +993,211 @@ footer {
       um dich anzumelden.
     </p>
 
+
     <p>
-      Der Armada-Anführer <strong>vergibt einen ⭐</strong>
-      an die angemeldeten Spieler, sobald diese angekommen sind.
+      Der Armada-Anführer
+      <strong>vergibt einen ⭐</strong>
+      an die angemeldeten Spieler,
+      sobald diese angekommen sind.
     </p>
+
 
     <p>
       <strong>
-        Ohne ⭐ werden schwächere Schiffe automatisch von stärkeren
-        Schiffen aus der Armada verdrängt.
+        Ohne ⭐ werden schwächere Schiffe automatisch
+        von stärkeren Schiffen aus der Armada verdrängt.
       </strong>
     </p>
 
+
     <p>
-      <strong>Kleine Armadas = kleine Schiffe.</strong>
-      Die kombinierte Stärke aller Schiffe in der Armada sollte ungefähr
-      <strong>2/3 der Gesamtstärke der Armada</strong> betragen.
+      <strong>
+        Kleine Armadas = kleine Schiffe.
+      </strong>
+
+      Die kombinierte Stärke aller Schiffe in der Armada
+      sollte ungefähr
+      <strong>
+        2/3 der Gesamtstärke der Armada
+      </strong>
+      betragen.
     </p>
+
 
     <hr>
 
-    <h3>👥 Vergabe der Plätze</h3>
+
+    <!-- VERGABE DER PLÄTZE -->
+
+    <h3>
+      👥 Vergabe der Plätze
+    </h3>
+
 
     <p>
       Oft gibt es mehr interessierte Spieler als freie Plätze.
       Daher gilt grundsätzlich:
     </p>
 
+
     <p>
       <strong>
-        Wer zuerst ein „+“ geschrieben hat, erhält den ⭐
-        und damit einen Platz in der Armada.
+        Wer zuerst ein „+“ geschrieben hat,
+        erhält den ⭐ und damit einen Platz in der Armada.
       </strong>
     </p>
+
 
     <p>
       <strong>Ausnahme:</strong>
       Die Stärke der angemeldeten Schiffe reicht nicht aus,
-      um die Armada zu besiegen. In diesem Fall kann der
-      Armada-Anführer auch anderen Spielern einen ⭐ geben.
+      um die Armada zu besiegen.
+
+      In diesem Fall kann der Armada-Anführer
+      auch anderen Spielern einen ⭐ geben.
     </p>
 
+
     <p>
-      <strong>Bitte nehmt Rücksicht aufeinander.</strong>
+      <strong>
+        Bitte nehmt Rücksicht aufeinander.
+      </strong>
     </p>
+
 
     <hr>
 
-    <h3>🌑 Eclipse-Armadas</h3>
+
+    <!-- ECLIPSE -->
+
+    <h3>
+      🌑 Eclipse-Armadas
+    </h3>
+
 
     <p>
-      Für <strong>Eclipse-Armadas</strong> gilt bei Selten/Episch
-      in den Exchange-Systemen:
+      Für <strong>Eclipse-Armadas</strong> gilt bei
+      Selten/Episch in den Exchange-Systemen:
     </p>
+
 
     <ul>
-      <li>Ausschließlich das Schiff <strong>Stella</strong> verwenden.</li>
-      <li>Die grünen Eclipse-Ziele können von jedem angeflogen werden.</li>
+
       <li>
-        Wer eine <strong>Stella</strong> besitzt, muss diese auch einsetzen –
-        unabhängig davon, ob die Armada grün, blau oder lila ist.
+        Ausschließlich das Schiff
+        <strong>Stella</strong> verwenden.
       </li>
+
+      <li>
+        Die grünen Eclipse-Ziele können
+        von jedem angeflogen werden.
+      </li>
+
+      <li>
+        Wer eine <strong>Stella</strong> besitzt,
+        muss diese auch einsetzen –
+        unabhängig davon, ob die Armada
+        grün, blau oder lila ist.
+      </li>
+
     </ul>
 
-    <p>Die Anmeldung erfolgt wie bei normalen Armadas durch:</p>
 
     <p>
-      <strong>„+“ + Kürzel des Starters</strong>
+      Die Anmeldung erfolgt wie bei normalen Armadas durch:
     </p>
+
+
+    <p>
+      <strong>
+        „+“ + Kürzel des Starters
+      </strong>
+    </p>
+
 
     <p>
       ⚠️ <strong>Wichtig:</strong>
-      Pro Spieler darf nur <strong>ein Schiff</strong> für eine Armada
-      angemeldet werden, damit bei mehreren gleichzeitig laufenden
+      Pro Spieler darf nur
+      <strong>ein Schiff</strong>
+      für eine Armada angemeldet werden,
+      damit bei mehreren gleichzeitig laufenden
       Armadas kein Chaos entsteht.
     </p>
+
 
     <p>
       <strong>Ausnahme:</strong>
       Eine zweite <strong>Stella</strong> darf angemeldet werden,
-      wenn dadurch verhindert werden soll, dass eine andere
-      Eclipse-Armada mangels Teilnehmern platzt.
+      wenn dadurch verhindert werden soll,
+      dass eine andere Eclipse-Armada
+      mangels Teilnehmern platzt.
     </p>
+
 
     <hr>
 
-    <h3>🟨🟥 Verstöße</h3>
+
+    <!-- VERSTÖSSE -->
+
+    <h3>
+      🟨🟥 Verstöße
+    </h3>
+
 
     <p>
-      Verstöße gegen diese Regeln werden zunächst mit einer
-      <strong>Gelben Karte</strong> geahndet.
+      Verstöße gegen diese Regeln werden zunächst
+      mit einer <strong>Gelben Karte</strong> geahndet.
     </p>
+
 
     <p>
       Beim zweiten Verstoß folgt die
-      <strong>Rote Karte und der Ausschluss von Armadas</strong>.
+      <strong>
+        Rote Karte und der Ausschluss von Armadas
+      </strong>.
     </p>
+
 
     <p>
       Wird trotz Ausschluss weiterhin an Armadas teilgenommen,
-      folgt der <strong>Ausschluss aus der Allianz</strong>.
+      folgt der
+      <strong>
+        Ausschluss aus der Allianz
+      </strong>.
     </p>
+
 
   </div>
 
-  <h3>Armadaformationen</h3>
+
+  <!-- ARMADAFORMATIONEN -->
+
+  <h3>
+    Armadaformationen
+  </h3>
+
 
   <p class="placeholder">
-    Hier können später bewährte Armadaformationen dargestellt werden.
+    Hier können später bewährte Armadaformationen
+    dargestellt werden.
   </p>
 
 </section>
 
 
+<!-- =======================================================
+     CREWS
+     ======================================================= -->
+
 <section id="crews" class="section">
 
-  <span class="section-tag">OFFIZIERE</span>
+  <span class="section-tag">
+    OFFIZIERE
+  </span>
 
-  <h2>Tipps für Crews</h2>
+  <h2>
+    Tipps für Crews
+  </h2>
 
   <p class="placeholder">
     Crew-Empfehlungen für Farming, PvE, PvP
@@ -556,25 +1207,41 @@ footer {
 </section>
 
 
+<!-- =======================================================
+     EVENTS
+     ======================================================= -->
+
 <section id="events" class="section">
 
-  <span class="section-tag">MISSIONEN</span>
+  <span class="section-tag">
+    MISSIONEN
+  </span>
 
-  <h2>Events &amp; Vorgaben</h2>
+  <h2>
+    Events &amp; Vorgaben
+  </h2>
 
   <p class="placeholder">
-    Hier kommen später Allianz-Events, Eventregeln
-    und besondere Vorgaben hinein.
+    Hier kommen später Allianz-Events,
+    Eventregeln und besondere Vorgaben hinein.
   </p>
 
 </section>
 
 
+<!-- =======================================================
+     SPEZIALSCHIFFE
+     ======================================================= -->
+
 <section id="spezialschiffe" class="section">
 
-  <span class="section-tag">SPEZIALFLOTTEN</span>
+  <span class="section-tag">
+    SPEZIALFLOTTEN
+  </span>
 
-  <h2>Spezialschiffe</h2>
+  <h2>
+    Spezialschiffe
+  </h2>
 
   <p class="placeholder">
     Dieser Bereich kann später um einzelne Spezialschiffe,
@@ -584,66 +1251,94 @@ footer {
 </section>
 
 
+<!-- =======================================================
+     FAQ
+     ======================================================= -->
+
 <section id="faq" class="section">
 
-  <span class="section-tag">DATENBANK</span>
+  <span class="section-tag">
+    DATENBANK
+  </span>
 
-  <h2>FAQ</h2>
+  <h2>
+    FAQ
+  </h2>
 
   <p class="placeholder">
-    Häufige Fragen und kurze Antworten für Mitglieder.
+    Häufige Fragen und kurze Antworten
+    für Mitglieder.
   </p>
 
 </section>
 
+
 </main>
 
 
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
 <footer>
 
-  <div>
+  <div class="footer-line">
     IMPERIALE GARDE · ALLIANZ-HANDBUCH
   </div>
 
-  <div>
+  <div class="footer-line">
     Star Trek Fleet Command · Fanprojekt
   </div>
 
 </footer>
 
 
+<!-- =======================================================
+     NAVIGATION – AKTIVEN BEREICH ERKENNEN
+     ======================================================= -->
+
 <script>
 
-const sections = [...document.querySelectorAll('main section')];
+const sections =
+  [...document.querySelectorAll('main section')];
 
-const links = [...document.querySelectorAll('.nav a')];
+const links =
+  [...document.querySelectorAll('.nav a')];
 
-const observer = new IntersectionObserver((entries) => {
 
-  entries.forEach(entry => {
+const observer =
+  new IntersectionObserver(
+    (entries) => {
 
-    if (entry.isIntersecting) {
+      entries.forEach(entry => {
 
-      links.forEach(link => {
-        link.style.color = '';
+        if (entry.isIntersecting) {
+
+          links.forEach(link => {
+            link.classList.remove('active');
+          });
+
+
+          const active =
+            document.querySelector(
+              `.nav a[href="#${entry.target.id}"]`
+            );
+
+
+          if (active) {
+            active.classList.add('active');
+          }
+
+        }
+
       });
 
-      const active =
-        document.querySelector(
-          `.nav a[href="#${entry.target.id}"]`
-        );
-
-      if (active) {
-        active.style.color = '#58c7ff';
-      }
-
+    },
+    {
+      rootMargin: '-20% 0px -65% 0px'
     }
+  );
 
-  });
-
-}, {
-  rootMargin: '-20% 0px -65% 0px'
-});
 
 sections.forEach(section => {
   observer.observe(section);
@@ -651,5 +1346,6 @@ sections.forEach(section => {
 
 </script>
 
+
 </body>
-</html>
+    </html>
