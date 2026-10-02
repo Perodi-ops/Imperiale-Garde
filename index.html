@@ -16,8 +16,13 @@
 :root {
   --bg: #050914;
   --panel: rgba(10, 22, 42, 0.88);
-  --line: rgba(80, 190, 255, 0.35);
+
+  /* Goldene Rahmen */
+  --line: rgba(231, 201, 106, 0.55);
+
+  /* Cyan beim Hover */
   --blue: #58c7ff;
+
   --gold: #e7c96a;
   --text: #e9f5ff;
   --muted: #9db4c9;
@@ -49,6 +54,11 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
 }
+
+
+/* =========================
+   STERNE
+   ========================= */
 
 .stars {
   position: fixed;
@@ -98,10 +108,11 @@ body {
   object-fit: contain;
 
   border-radius: 50%;
+
   border: 1px solid var(--line);
 
   box-shadow:
-    0 0 28px rgba(88,199,255,.12);
+    0 0 28px rgba(231,201,106,.12);
 }
 
 .eyebrow {
@@ -160,6 +171,10 @@ main {
     0 18px 45px rgba(0,0,0,.2);
 
   scroll-margin-top: 30px;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
 }
 
 .section h2 {
@@ -180,8 +195,7 @@ main {
 }
 
 .intro {
-  border-color:
-    rgba(231,201,106,.35);
+  border-color: var(--line);
 }
 
 .section-tag {
@@ -200,11 +214,19 @@ main {
    ========================= */
 
 .cards {
+
+  /*
+     6 Spalten.
+
+     Jede Kachel belegt 2 Spalten.
+     Dadurch sind sie exakt so breit
+     wie im ursprünglichen 3-Spalten-Layout.
+  */
+
   display: grid;
 
-  /* Ursprüngliche Breite wiederhergestellt */
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(6, minmax(0, 1fr));
 
   gap: 15px;
 
@@ -212,6 +234,7 @@ main {
 }
 
 .card {
+
   display: flex;
 
   flex-direction: column;
@@ -219,7 +242,6 @@ main {
 
   gap: 2px;
 
-  /* deutlich flacher */
   min-height: 72px;
 
   padding: 8px 12px;
@@ -231,28 +253,74 @@ main {
   text-align: center;
 
   border:
-    1px solid rgba(88,199,255,.28);
+    1px solid var(--line);
 
   border-radius: 8px;
 
   background:
     rgba(20,50,80,.28);
 
-  transition: .2s ease;
+  transition:
+    .2s ease;
 }
 
+
+/*
+   Jede Kachel ist 2 von 6 Spalten breit.
+*/
+
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4),
+.card:nth-child(5),
+.card:nth-child(6),
+.card:nth-child(7),
+.card:nth-child(8) {
+
+  grid-column:
+    span 2;
+}
+
+
+/*
+   Letzte Reihe:
+
+   Kachel 7 beginnt bei Spalte 2.
+   Kachel 8 beginnt bei Spalte 4.
+
+   Dadurch stehen beide gemeinsam
+   exakt mittig.
+*/
+
+.card:nth-child(7) {
+  grid-column:
+    2 / span 2;
+}
+
+.card:nth-child(8) {
+  grid-column:
+    4 / span 2;
+}
+
+
+/* Hover-Effekt */
+
 .card:hover {
+
   color: var(--text);
 
-  border-color: var(--blue);
+  border-color:
+    var(--blue);
 
   background:
     rgba(88,199,255,.09);
 
   box-shadow:
-    0 0 18px rgba(88,199,255,.12);
+    0 0 18px rgba(88,199,255,.18);
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 }
 
 .card span {
@@ -276,28 +344,12 @@ main {
 }
 
 
-/*
-   Erste sechs:
-   ganz normales 3-Spalten-Raster.
-
-   Die letzten beiden werden gemeinsam
-   um eine halbe Spaltenbreite nach rechts
-   verschoben und stehen dadurch exakt mittig.
-*/
-
-.card:nth-child(7),
-.card:nth-child(8) {
-  position: relative;
-
-  left: 16.6667%;
-}
-
-
 /* =========================
    ZURÜCK ZUM ANFANG
    ========================= */
 
 .back-to-top {
+
   display: block;
 
   width: fit-content;
@@ -315,31 +367,62 @@ main {
   font-size: 12px;
 
   border:
-    1px solid rgba(88,199,255,.25);
+    1px solid var(--line);
 
   border-radius: 6px;
 
   background:
     rgba(20,50,80,.2);
 
-  transition: .2s ease;
+  transition:
+    .2s ease;
 }
 
 .back-to-top:hover {
+
   color: var(--blue);
 
-  border-color: var(--blue);
+  border-color:
+    var(--blue);
 
   background:
     rgba(88,199,255,.08);
+
+  box-shadow:
+    0 0 14px rgba(88,199,255,.15);
 }
 
 
 /* =========================
-   INHALT
+   INHALTSBOX
    ========================= */
 
+.content-box {
+
+  padding: 20px;
+
+  border:
+    1px solid rgba(231,201,106,.40);
+
+  border-radius: 8px;
+
+  background:
+    rgba(20,50,80,.18);
+}
+
+.content-box hr {
+
+  border: 0;
+
+  border-top:
+    1px solid rgba(231,201,106,.25);
+
+  margin:
+    25px 0;
+}
+
 .placeholder {
+
   padding: 17px 20px;
 
   border-left:
@@ -348,19 +431,8 @@ main {
   background:
     rgba(231,201,106,.055);
 
-  color: var(--muted) !important;
-}
-
-.content-box {
-  padding: 20px;
-
-  border:
-    1px solid rgba(88,199,255,.18);
-
-  border-radius: 8px;
-
-  background:
-    rgba(20,50,80,.18);
+  color:
+    var(--muted) !important;
 }
 
 
@@ -369,14 +441,17 @@ main {
    ========================= */
 
 .rules-image {
+
   display: block;
 
   width: 100%;
+
   max-width: 750px;
 
   height: auto;
 
-  margin: 20px auto 0;
+  margin:
+    20px auto 0;
 
   border: none;
 
@@ -393,9 +468,11 @@ main {
    ========================= */
 
 footer {
+
   position: relative;
 
-  padding: 28px 20px 45px;
+  padding:
+    28px 20px 45px;
 
   text-align: center;
 
@@ -410,18 +487,66 @@ footer {
 
 
 /* =========================
-   MOBILE
+   TABLET
+   ========================= */
+
+/*
+   Das 6-Spalten-Raster bleibt hier absichtlich
+   erhalten.
+
+   Dadurch bleiben die Kacheln exakt 1/3 breit
+   und die letzte Reihe exakt zentriert.
+*/
+
+@media (max-width: 900px) and (min-width: 721px) {
+
+  .hero {
+    padding:
+      32px 20px 26px;
+  }
+
+  .section {
+    padding:
+      28px;
+  }
+
+  .cards {
+    gap: 12px;
+  }
+
+  .card {
+    min-height: 72px;
+
+    padding:
+      8px 10px;
+  }
+
+  .card b {
+    font-size: 11px;
+  }
+
+  .card small {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================
+   HANDY
    ========================= */
 
 @media (max-width: 720px) {
 
   .hero {
-    padding: 28px 16px 24px;
+
+    padding:
+      28px 16px 24px;
 
     gap: 10px;
   }
 
   .alliance-logo {
+
     width: 300px;
     height: 300px;
   }
@@ -431,6 +556,7 @@ footer {
   }
 
   h1 {
+
     font-size:
       clamp(34px, 10vw, 48px);
   }
@@ -440,37 +566,55 @@ footer {
   }
 
   main {
+
     padding:
       18px 12px 55px;
   }
 
   .section {
+
     padding:
       24px 18px;
   }
 
+
   /*
-     Auf dem Handy eine Spalte.
-     Alle Kacheln wieder exakt gleich breit.
+     Auf dem Handy:
+     eine Kachel pro Zeile.
   */
 
   .cards {
-    grid-template-columns: 1fr;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 12px;
   }
 
   .card,
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4),
+  .card:nth-child(5),
+  .card:nth-child(6),
   .card:nth-child(7),
   .card:nth-child(8) {
 
-    grid-column: auto;
+    grid-column:
+      auto;
+  }
 
-    left: 0;
+  .card {
 
-    min-height: 72px;
+    min-height:
+      72px;
   }
 
   .rules-image {
-    max-width: 100%;
+
+    max-width:
+      100%;
   }
 }
 
