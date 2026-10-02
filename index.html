@@ -175,27 +175,42 @@ main {
   letter-spacing: .06em;
 }
 
+/* STARTSEITEN-NAVIGATION */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  margin-top: 25px;
+  margin-top: 28px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  justify-content: center;
+  gap: 5px;
+  min-height: 115px;
   padding: 20px;
   color: var(--text);
   text-decoration: none;
-  border: 1px solid rgba(88,199,255,.22);
+  text-align: center;
+  border: 1px solid rgba(88,199,255,.28);
   border-radius: 8px;
   background: rgba(20,50,80,.28);
+  transition: .2s ease;
+}
+
+.card:hover {
+  color: var(--text);
+  border-color: var(--blue);
+  background: rgba(88,199,255,.09);
+  box-shadow: 0 0 18px rgba(88,199,255,.12);
+  transform: translateY(-2px);
 }
 
 .card span {
-  font-size: 27px;
+  font-size: 30px;
+  line-height: 1.2;
 }
 
 .card b {
@@ -205,6 +220,7 @@ main {
 
 .card small {
   color: var(--muted);
+  font-size: 12px;
 }
 
 .placeholder {
@@ -364,8 +380,44 @@ footer {
 
     <a class="card" href="#crews">
       <span>👨‍🚀</span>
-      <b>Crew-Tipps</b>
+      <b>Tipps für Crews</b>
       <small>Hilfreiche Crew-Zusammenstellungen</small>
+    </a>
+
+    <a class="card" href="#mining">
+      <span>⛏️</span>
+      <b>Mining &amp; Ressourcen</b>
+      <small>Ressourcen und Mining-Regeln</small>
+    </a>
+
+    <a class="card" href="#kampf">
+      <span>⚔️</span>
+      <b>Kampf &amp; PvP</b>
+      <small>Kampfregeln und Vorgaben</small>
+    </a>
+
+    <a class="card" href="#events">
+      <span>🎯</span>
+      <b>Events &amp; Vorgaben</b>
+      <small>Events und besondere Regeln</small>
+    </a>
+
+    <a class="card" href="#spezialschiffe">
+      <span>🛸</span>
+      <b>Spezialschiffe</b>
+      <small>Spezialschiffe und Einsatzgebiete</small>
+    </a>
+
+    <a class="card" href="#faq">
+      <span>❓</span>
+      <b>FAQ</b>
+      <small>Häufige Fragen und Antworten</small>
+    </a>
+
+    <a class="card" href="#start">
+      <span>🏠</span>
+      <b>Startseite</b>
+      <small>Zurück zum Anfang</small>
     </a>
 
   </div>
@@ -502,145 +554,4 @@ footer {
       </li>
     </ul>
 
-    <p>Die Anmeldung erfolgt wie bei normalen Armadas durch:</p>
-
-    <p><strong>„+“ + Kürzel des Starters</strong></p>
-
-    <p>
-      ⚠️ <strong>Wichtig:</strong>
-      Pro Spieler darf nur <strong>ein Schiff</strong> für eine Armada
-      angemeldet werden, damit bei mehreren gleichzeitig laufenden
-      Armadas kein Chaos entsteht.
-    </p>
-
-    <p>
-      <strong>Ausnahme:</strong>
-      Eine zweite <strong>Stella</strong> darf angemeldet werden,
-      wenn dadurch verhindert werden soll, dass eine andere
-      Eclipse-Armada mangels Teilnehmern platzt.
-    </p>
-
-    <hr>
-
-    <h3>🟨🟥 Verstöße</h3>
-
-    <p>
-      Verstöße gegen diese Regeln werden zunächst mit einer
-      <strong>Gelben Karte</strong> geahndet.
-    </p>
-
-    <p>
-      Beim zweiten Verstoß folgt die
-      <strong>Rote Karte und der Ausschluss von Armadas</strong>.
-    </p>
-
-    <p>
-      Wird trotz Ausschluss weiterhin an Armadas teilgenommen,
-      folgt der <strong>Ausschluss aus der Allianz</strong>.
-    </p>
-
-  </div>
-
-  <h3>Armadaformationen</h3>
-
-  <p class="placeholder">
-    Hier können später bewährte Armadaformationen dargestellt werden.
-  </p>
-
-</section>
-
-<section id="crews" class="section">
-
-  <span class="section-tag">OFFIZIERE</span>
-
-  <h2>Tipps für Crews</h2>
-
-  <p class="placeholder">
-    Crew-Empfehlungen für Farming, PvE, PvP
-    und besondere Situationen.
-  </p>
-
-</section>
-
-<section id="events" class="section">
-
-  <span class="section-tag">MISSIONEN</span>
-
-  <h2>Events &amp; Vorgaben</h2>
-
-  <p class="placeholder">
-    Hier kommen später Allianz-Events, Eventregeln
-    und besondere Vorgaben hinein.
-  </p>
-
-</section>
-
-<section id="spezialschiffe" class="section">
-
-  <span class="section-tag">SPEZIALFLOTTEN</span>
-
-  <h2>Spezialschiffe</h2>
-
-  <p class="placeholder">
-    Dieser Bereich kann später um einzelne Spezialschiffe,
-    Einsatzgebiete und Tipps erweitert werden.
-  </p>
-
-</section>
-
-<section id="faq" class="section">
-
-  <span class="section-tag">DATENBANK</span>
-
-  <h2>FAQ</h2>
-
-  <p class="placeholder">
-    Häufige Fragen und kurze Antworten für Mitglieder.
-  </p>
-
-</section>
-
-</main>
-
-<footer>
-
-  <div>IMPERIALE GARDE · ALLIANZ-HANDBUCH</div>
-
-  <div>Star Trek Fleet Command · Fanprojekt</div>
-
-</footer>
-
-<script>
-const sections = [...document.querySelectorAll('main section')];
-const links = [...document.querySelectorAll('.nav a')];
-
-const observer = new IntersectionObserver((entries) => {
-
-  entries.forEach(entry => {
-
-    if (entry.isIntersecting) {
-
-      links.forEach(link => {
-        link.style.color = '';
-      });
-
-      const active =
-        document.querySelector(
-          `.nav a[href="#${entry.target.id}"]`
-        );
-
-      if (active) {
-        active.style.color = '#58c7ff';
-      }
-    }
-  });
-
-}, {
-  rootMargin: '-20% 0px -65% 0px'
-});
-
-sections.forEach(section => observer.observe(section));
-</script>
-
-</body>
-</html>
+    <p>Die Anmeldung erfolgt wie bei normalen Armadas durch:</
