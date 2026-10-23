@@ -225,23 +225,6 @@ main {
   background: rgba(20,50,80,.18);
 }
 
-.guestbook-link {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 20px;
-  color: var(--bg);
-  background: var(--gold);
-  border: 1px solid var(--gold);
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.guestbook-link:hover {
-  background: var(--blue);
-  border-color: var(--blue);
-}
-
 footer {
   position: relative;
   padding: 28px 20px 45px;
@@ -464,7 +447,7 @@ footer {
 
 <script>
 const sections = [...document.querySelectorAll('main section')];
-const links = [...document.querySelectorAll('.nav a[href^="#"]')];
+const links = [...document.querySelectorAll('.nav a')];
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
