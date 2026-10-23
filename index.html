@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,12 +13,10 @@
 :root {
   --bg: #050914;
   --panel: rgba(10, 22, 42, 0.88);
-  --line: rgba(80, 190, 255, 0.35);
-  --blue: #58c7ff;
-  --blue2: #1d75ad;
-  --gold: #e7c96a;
+  --line: #FFD83D;
+  --gold: #FFD83D;
   --text: #e9f5ff;
-  --muted: #9db4c9;
+  --muted: #c5b985;
 }
 
 * {
@@ -29,8 +28,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 20% 10%, rgba(25, 100, 170, .22), transparent 28%),
-    radial-gradient(circle at 80% 30%, rgba(90, 40, 150, .14), transparent 30%),
+    radial-gradient(circle at 20% 10%, rgba(160,120,0,.18), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(160,100,0,.10), transparent 30%),
     var(--bg);
   font-family: Roboto, Arial, sans-serif;
   line-height: 1.65;
@@ -44,12 +43,10 @@ body {
   opacity: .45;
   background-image:
     radial-gradient(circle, #fff 1px, transparent 1px),
-    radial-gradient(circle, #7fd7ff 1px, transparent 1px);
+    radial-gradient(circle, #FFD83D 1px, transparent 1px);
   background-size: 97px 113px, 151px 173px;
   background-position: 10px 20px, 60px 80px;
 }
-
-/* KOPFBEREICH */
 
 .hero {
   position: relative;
@@ -69,20 +66,23 @@ body {
   object-fit: contain;
   border-radius: 50%;
   border: 1px solid var(--line);
-  box-shadow: 0 0 28px rgba(88,199,255,.12);
+  box-shadow: 0 0 28px rgba(255,216,61,.45),
+              0 0 55px rgba(255,216,61,.18);
 }
 
 .eyebrow {
   margin-top: 4px;
   font-family: Orbitron, sans-serif;
   font-size: clamp(18px, 3vw, 30px);
-  font-weight: 400;
 }
 
 h1 {
   margin: 4px 0 0;
+  font-family: Orbitron, sans-serif;
   font-size: clamp(36px, 7vw, 62px);
   line-height: 1.15;
+  color: var(--gold);
+  text-shadow: 0 0 16px rgba(255,216,61,.5);
 }
 
 .hero p {
@@ -90,48 +90,6 @@ h1 {
   color: var(--gold);
   font: 500 18px Orbitron, sans-serif;
 }
-
-/* MENÜ */
-
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 8px 10px;
-  background: rgba(3, 8, 18, .96);
-  border-top: 1px solid rgba(88,199,255,.15);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(12px);
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.nav::-webkit-scrollbar {
-  display: none;
-}
-
-.nav a {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 7px 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.nav a:hover {
-  color: var(--text);
-  border-color: var(--line);
-  background: rgba(88,199,255,.07);
-}
-
-/* INHALT */
 
 main {
   position: relative;
@@ -146,13 +104,18 @@ main {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--panel);
-  box-shadow: 0 18px 45px rgba(0,0,0,.2);
-  scroll-margin-top: 70px;
+  box-shadow: 0 0 20px rgba(255,216,61,.16),
+              inset 0 0 14px rgba(255,216,61,.04),
+              0 18px 45px rgba(0,0,0,.2);
+  scroll-margin-top: 20px;
 }
 
 .section h2 {
   margin: 5px 0 12px;
+  font-family: Orbitron, sans-serif;
   font-size: clamp(22px, 4vw, 32px);
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(255,216,61,.28);
 }
 
 .section h3 {
@@ -165,7 +128,7 @@ main {
 }
 
 .intro {
-  border-color: rgba(231,201,106,.35);
+  border-color: var(--gold);
 }
 
 .section-tag {
@@ -177,7 +140,7 @@ main {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-top: 25px;
 }
@@ -187,11 +150,22 @@ main {
   flex-direction: column;
   gap: 4px;
   padding: 20px;
+  min-height: 145px;
   color: var(--text);
   text-decoration: none;
-  border: 1px solid rgba(88,199,255,.22);
+  border: 1px solid rgba(255,216,61,.72);
   border-radius: 8px;
-  background: rgba(20,50,80,.28);
+  background: rgba(65,48,8,.30);
+  box-shadow: 0 0 15px rgba(255,216,61,.16),
+              inset 0 0 12px rgba(255,216,61,.05);
+  transition: transform .2s ease, box-shadow .2s ease,
+              background .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(90,67,8,.45);
+  box-shadow: 0 0 24px rgba(255,216,61,.35);
 }
 
 .card span {
@@ -201,6 +175,7 @@ main {
 .card b {
   font-family: Orbitron, sans-serif;
   font-size: 14px;
+  color: var(--gold);
 }
 
 .card small {
@@ -210,18 +185,23 @@ main {
 .placeholder {
   padding: 17px 20px;
   border-left: 3px solid var(--gold);
-  background: rgba(231,201,106,.055);
+  background: rgba(255,216,61,.055);
   color: var(--muted) !important;
 }
 
 .content-box {
   padding: 20px;
-  border: 1px solid rgba(88,199,255,.18);
+  border: 1px solid rgba(255,216,61,.55);
   border-radius: 8px;
-  background: rgba(20,50,80,.18);
+  background: rgba(65,48,8,.22);
+  box-shadow: 0 0 15px rgba(255,216,61,.10);
 }
 
-/* REGELN-TAFEL */
+.content-box hr {
+  border: 0;
+  border-top: 1px solid rgba(255,216,61,.45);
+  margin: 28px 0;
+}
 
 .section#regeln {
   background: transparent;
@@ -243,19 +223,38 @@ main {
   object-fit: contain;
 }
 
+.back-top {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 9px 15px;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255,216,61,.15);
+}
+
+.back-top:hover {
+  background: rgba(255,216,61,.1);
+  box-shadow: 0 0 18px rgba(255,216,61,.3);
+}
+
 footer {
   position: relative;
   padding: 28px 20px 45px;
   text-align: center;
-  color: #71879a;
+  color: #9b9066;
   font: 10px Orbitron, sans-serif;
   letter-spacing: .08em;
 }
 
-/* HANDY */
+@media (max-width: 850px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 720px) {
-
   .hero {
     padding: 28px 16px 24px;
     gap: 10px;
@@ -264,6 +263,8 @@ footer {
   .alliance-logo {
     width: 300px;
     height: 300px;
+    max-width: 90vw;
+    max-height: 90vw;
   }
 
   .eyebrow {
@@ -278,16 +279,6 @@ footer {
     font-size: 16px;
   }
 
-  .nav {
-    padding: 7px 8px;
-    gap: 3px;
-  }
-
-  .nav a {
-    padding: 7px 9px;
-    font-size: 13px;
-  }
-
   main {
     padding: 18px 12px 55px;
   }
@@ -300,52 +291,33 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .card {
+    min-height: auto;
+  }
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <div class="stars"></div>
 
 <header class="hero">
-
   <img
     src="imperiale-garde-emblem.png"
     alt="Imperiale Garde"
     class="alliance-logo"
   >
 
-  <div class="eyebrow">
-    STAR TREK FLEET COMMAND
-  </div>
-
+  <div class="eyebrow">STAR TREK FLEET COMMAND</div>
   <h1>Imperiale Garde</h1>
-
   <p>Allianz-Handbuch</p>
-
 </header>
-
-<nav class="nav">
-
-  <a href="#start">Startseite</a>
-  <a href="#regeln">Allianzregeln</a>
-  <a href="#mining">Mining &amp; Ressourcen</a>
-  <a href="#kampf">Kampf &amp; PvP</a>
-  <a href="#armadas">Armadas</a>
-  <a href="#crews">Tipps für Crews</a>
-  <a href="#events">Events &amp; Vorgaben</a>
-  <a href="#spezialschiffe">Spezialschiffe</a>
-  <a href="https://imperialegarde412.atabook.org/" target="_blank" rel="noopener noreferrer">Gästebuch</a>
-
-</nav>
 
 <main>
 
 <section id="start" class="section intro">
-
   <span class="section-tag">BRÜCKE</span>
-
   <h2>Willkommen bei der Imperialen Garde</h2>
 
   <p>
@@ -353,12 +325,62 @@ footer {
     Vorgaben und Tipps unserer Allianz an einem Ort.
   </p>
 
+  <div class="cards">
+    <a class="card" href="#regeln">
+      <span>📜</span>
+      <b>Allianzregeln</b>
+      <small>Regeln und Servervorgaben</small>
+    </a>
+
+    <a class="card" href="#mining">
+      <span>⛏️</span>
+      <b>Mining &amp; Ressourcen</b>
+      <small>Ressourcen und Mining</small>
+    </a>
+
+    <a class="card" href="#kampf">
+      <span>⚔️</span>
+      <b>Kampf &amp; PvP</b>
+      <small>Taktik und Kampfregeln</small>
+    </a>
+
+    <a class="card" href="#armadas">
+      <span>🚀</span>
+      <b>Armadas</b>
+      <small>Teilnahme und Formationen</small>
+    </a>
+
+    <a class="card" href="#crews">
+      <span>🖖</span>
+      <b>Tipps für Crews</b>
+      <small>Offiziere und Crew-Kombinationen</small>
+    </a>
+
+    <a class="card" href="#events">
+      <span>🌌</span>
+      <b>Events &amp; Vorgaben</b>
+      <small>Allianz-Events und Hinweise</small>
+    </a>
+
+    <a class="card" href="#spezialschiffe">
+      <span>🛸</span>
+      <b>Spezialschiffe</b>
+      <small>Besondere Schiffe im Einsatz</small>
+    </a>
+
+    <a class="card"
+       href="https://imperialegarde412.atabook.org/"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>✍️</span>
+      <b>Gästebuch</b>
+      <small>Hinterlasse einen Gruß</small>
+    </a>
+  </div>
 </section>
 
 <section id="regeln" class="section">
-
   <span class="section-tag">DIREKTIVE 01</span>
-
   <h2>Allianzregeln</h2>
 
   <img
@@ -367,12 +389,11 @@ footer {
     class="rules-image"
   >
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="mining" class="section">
-
   <span class="section-tag">RESSOURCEN</span>
-
   <h2>Mining &amp; Ressourcen</h2>
 
   <p class="placeholder">
@@ -380,12 +401,11 @@ footer {
     und besondere Vorgaben eingetragen.
   </p>
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="kampf" class="section">
-
   <span class="section-tag">TAKTIK</span>
-
   <h2>Kampf &amp; PvP</h2>
 
   <p class="placeholder">
@@ -393,18 +413,16 @@ footer {
     und Verteidigungsvorgaben hinein.
   </p>
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="armadas" class="section">
-
   <span class="section-tag">FLOTTENOPERATIONEN</span>
-
   <h2>Armadas</h2>
 
   <h3>Grundsätzliches</h3>
 
   <div class="content-box">
-
     <h3>🚀 Teilnahme</h3>
 
     <p>
@@ -486,7 +504,6 @@ footer {
     </ul>
 
     <p>Die Anmeldung erfolgt wie bei normalen Armadas durch:</p>
-
     <p><strong>„+“ + Kürzel des Starters</strong></p>
 
     <p>
@@ -521,7 +538,6 @@ footer {
       Wird trotz Ausschluss weiterhin an Armadas teilgenommen,
       folgt der <strong>Ausschluss aus der Allianz</strong>.
     </p>
-
   </div>
 
   <h3>Armadaformationen</h3>
@@ -530,12 +546,11 @@ footer {
     Hier können später bewährte Armadaformationen dargestellt werden.
   </p>
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="crews" class="section">
-
   <span class="section-tag">OFFIZIERE</span>
-
   <h2>Tipps für Crews</h2>
 
   <p class="placeholder">
@@ -543,12 +558,11 @@ footer {
     und besondere Situationen.
   </p>
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="events" class="section">
-
   <span class="section-tag">MISSIONEN</span>
-
   <h2>Events &amp; Vorgaben</h2>
 
   <p class="placeholder">
@@ -556,12 +570,11 @@ footer {
     und besondere Vorgaben hinein.
   </p>
 
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 <section id="spezialschiffe" class="section">
-
   <span class="section-tag">SPEZIALFLOTTEN</span>
-
   <h2>Spezialschiffe</h2>
 
   <p class="placeholder">
@@ -569,61 +582,15 @@ footer {
     Einsatzgebiete und Tipps erweitert werden.
   </p>
 
-</section>
-
-<section id="faq" class="section">
-
-  <span class="section-tag">DATENBANK</span>
-
-  <h2>FAQ</h2>
-
-  <p class="placeholder">
-    Häufige Fragen und kurze Antworten für Mitglieder.
-  </p>
-
+  <a class="back-top" href="#top">↑ Zurück nach oben</a>
 </section>
 
 </main>
 
 <footer>
-
   <div>IMPERIALE GARDE · ALLIANZ-HANDBUCH</div>
-
   <div>Star Trek Fleet Command · Fanprojekt</div>
-
 </footer>
-
-<script>
-const sections = [...document.querySelectorAll('main section')];
-const links = [...document.querySelectorAll('.nav a')];
-
-const observer = new IntersectionObserver((entries) => {
-
-  entries.forEach(entry => {
-
-    if (entry.isIntersecting) {
-
-      links.forEach(link => {
-        link.style.color = '';
-      });
-
-      const active =
-        document.querySelector(
-          `.nav a[href="#${entry.target.id}"]`
-        );
-
-      if (active) {
-        active.style.color = '#58c7ff';
-      }
-    }
-  });
-
-}, {
-  rootMargin: '-20% 0px -65% 0px'
-});
-
-sections.forEach(section => observer.observe(section));
-</script>
 
 </body>
 </html>
