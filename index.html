@@ -182,6 +182,56 @@ main {
   background: rgba(65,48,8,.22); box-shadow: 0 0 15px rgba(255,216,61,.10);
 }
 
+/* ARMADA-FORMATIONEN */
+.formation-guide {
+  margin-top: 18px;
+  padding: 26px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(255,216,61,.07), rgba(10,22,42,.92) 42%);
+  box-shadow: 0 0 18px rgba(255,216,61,.14), inset 0 0 16px rgba(255,216,61,.035);
+}
+.formation-guide-title {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,216,61,.55);
+  color: var(--gold);
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(19px, 3vw, 26px);
+  letter-spacing: .04em;
+}
+.formation-guide p { margin: 17px 0; }
+.formation-roles {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+.formation-role {
+  display: grid;
+  grid-template-columns: minmax(145px, 1fr) 2fr;
+  gap: 14px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255,216,61,.35);
+  border-radius: 7px;
+  background: rgba(255,216,61,.045);
+}
+.formation-role strong { color: var(--gold); }
+.formation-role span { color: #c7d9e8; }
+.formation-warning {
+  margin-top: 24px !important;
+  padding: 14px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 7px;
+  color: var(--gold) !important;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(255,216,61,.12);
+}
+@media (max-width: 720px) {
+  .formation-guide { padding: 18px; }
+  .formation-role { grid-template-columns: 1fr; gap: 5px; }
+}
+
 /* REGELN-TAFEL */
 
 .section#regeln {
@@ -478,9 +528,36 @@ footer {
 
   <h3>Armadaformationen</h3>
 
-  <p class="placeholder">
-    Hier können später bewährte Armadaformationen dargestellt werden.
-  </p>
+  <div class="formation-guide">
+    <div class="formation-guide-title">ARMADA- FORMATION</div>
+
+    <p>Es wird im Chat festgelegt, wer welche Formada startet.<br>
+    Anschliessend wird die jeweilige Gruppe mit Mitspielern und den entsprechenden Schiffen aufgefüllt.</p>
+
+    <div class="formation-roles">
+      <div class="formation-role"><strong>Forschungsschiffe</strong><span>ZU FORMADA-ARM WO FORSCHUNGSSCHIFFE VERSTÄRKTE WIRKUNG HABEN</span></div>
+      <div class="formation-role"><strong>Kampfschiffe</strong><span>ZU FORMADA-ARM WO KAMPFSCHIFFE VERSTÄRKTE WIRKUNG HABEN</span></div>
+      <div class="formation-role"><strong>Abfangjäger</strong><span>ZU FORMADA-ARM WO ABFANGJÄGER VERSTÄRKTE WIRKUNG HABEN</span></div>
+    </div>
+
+    <p>Anschliessend treffen sich die vorbereiteten Gruppen im jeweiligen System.</p>
+
+    <p>Es wird die erste Formada eröffnet und die dazugehörige Gruppe geht in den Kreis. ES WERDEN STERNE GESETZT!</p>
+
+    <p>Dann beginnt der 2. Starter und es geht die dazugehörige Gruppe in den Kreis. es werden Sterne gesetzt.</p>
+
+    <p>Der dritte Starter beginnt wenn die 2. Gruppe voll ist.</p>
+
+    <p>So wird ein Reimmogeln und überschüssige Anmeldungen vermieden, es ist übersichtlicher und Streit wird umgangen.</p>
+
+    <p>Im Allianz-Turnier ist es erforderlich , das ein Spieler, sofern er die Quest annimmt, in allen drei Armen der Formada anwesend sein soll.</p>
+
+    <p>Da kann Rücksicht auf schnelle Erledigung genommen werden.</p>
+
+    <p>Es wird um Verständnis gebeten, dass auch Formadas gestartet werden, die nicht von allen Spielern angeflogen werden können.</p>
+
+    <p class="formation-warning">BITTE keine Formada ohne Ankündigung starten!</p>
+  </div>
 
 </section>
 
