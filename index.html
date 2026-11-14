@@ -232,28 +232,48 @@ main {
   .formation-role { grid-template-columns: 1fr; gap: 5px; }
 }
 
-/* REGELN-TAFEL */
-
-.section#regeln {
-  background: var(--panel);
-  border: 1px solid var(--gold);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255,216,61,.16),
-              inset 0 0 14px rgba(255,216,61,.04),
-              0 18px 45px rgba(0,0,0,.2);
-  padding: 34px;
+/* ROE-REGELWERK */
+.roe-intro {
+  margin: 18px 0 26px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,216,61,.62);
+  border-left: 4px solid var(--gold);
+  border-radius: 9px;
+  background: rgba(65,48,8,.24);
+  box-shadow: 0 0 15px rgba(255,216,61,.09);
 }
-
-.section#regeln .rules-image {
-  display: block;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  margin: 20px auto 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: contain;
+.roe-intro p { margin: 0; }
+.roe-group {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255,216,61,.25);
+  border-radius: 9px;
+  background: rgba(5,14,29,.48);
+}
+.roe-group h3 {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,216,61,.25);
+  font-family: Orbitron, sans-serif;
+  font-size: 19px;
+  color: var(--gold);
+}
+.roe-rule { margin: 15px 0; }
+.roe-rule:last-child { margin-bottom: 0; }
+.roe-rule strong { color: #fff; }
+.roe-rule p { margin: 5px 0 0; }
+.roe-note {
+  margin-top: 22px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255,110,90,.5);
+  border-radius: 8px;
+  background: rgba(100,25,25,.16);
+}
+.roe-note strong { color: #ff9b86; }
+.roe-glossary { color: var(--muted); font-size: 14px; }
+@media (max-width: 720px) {
+  .roe-group { padding: 16px; }
+  .roe-intro { padding: 15px; }
 }
 
 footer {
@@ -372,15 +392,106 @@ footer {
 
 <section id="regeln" class="section">
 
-  <span class="section-tag">DIREKTIVE 01</span>
+  <span class="section-tag">DIREKTIVE 01 · SERVER-ROE</span>
+  <h2>Rules of Engagement (RoE)</h2>
 
-  <h2>Serverregeln</h2>
+  <div class="roe-intro">
+    <p>Die nachfolgenden RoE-Regeln wurden von der Mehrheit der im Senate vertretenen Allianzen beschlossen. Sie bilden die gemeinsame Grundlage für ein faires Miteinander auf Server 412. Die Imperiale Garde unterstützt diese Vereinbarungen und richtet ihr eigenes Verhalten danach aus.</p>
+  </div>
 
-  <img
-    src="IMG_3998.png"
-    alt="Kampfregeln des Servers"
-    class="rules-image"
-  >
+  <div class="roe-group">
+    <h3>1 · Mining</h3>
+    <div class="roe-rule">
+      <strong>UPC-Survey-Schiffe beim aktiven Mining</strong>
+      <p>Survey-Schiffe mit UPC (Under Protected Cargo), die aktiv minen, sind geschützt.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>OPC</strong>
+      <p>Schiffe mit OPC (Over Protected Cargo) sind FTK.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Falsches Schiff auf einem Spezial-Mining-Knoten</strong>
+      <p>Wird ein falsches Schiff auf einem Spezial-Mining-Knoten angetroffen, ist es FTK.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Spezial-Survey-Schiffe auf Gas-, Erz- oder Kristall-Knoten</strong>
+      <p>Spezial-Survey-Schiffe auf Gas-, Erz- oder Kristall-Knoten sind FTK.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Zero Node</strong>
+      <p>Schiffe auf einem Zero Node sind nach einer 2-minütigen Warnung FTK.</p>
+    </div>
+  </div>
+
+  <div class="roe-group">
+    <h3>2 · Protected Activity</h3>
+    <div class="roe-rule">
+      <strong>Spezial-Schiffe im vorgesehenen Einsatzbereich</strong>
+      <p>Spezial-Schiffe, die in ihrem vorgesehenen Gebiet und für ihren vorgesehenen Zweck eingesetzt werden, sind geschützt.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Automatisches Farming</strong>
+      <p>Spezial-Schiffe, die ihre zugewiesenen Hostiles automatisch farmen, sind geschützt.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Token-Systeme</strong>
+      <p>Schiffe in Token-Systemen sind geschützt.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Aktiver Armada-Kreis</strong>
+      <p>Schiffe in einem aktiven Armada-Kreis sind geschützt.</p>
+    </div>
+  </div>
+
+  <div class="roe-group">
+    <h3>3 · Territory</h3>
+    <div class="roe-rule">
+      <strong>Mining im Territory</strong>
+      <p>Survey-Schiffe, die im Territory minen, sind geschützt. Ausnahme: während eines umkämpften Territory Takeover.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Umkämpfter Territory Takeover</strong>
+      <p>Während eines umkämpften Territory Takeover dürfen nur die teilnehmenden Allianzen angreifen.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Keine Einmischung von außen</strong>
+      <p>Während eines umkämpften Territory Takeover sind Einmischung und Unterstützung von außen nicht erlaubt.</p>
+    </div>
+  </div>
+
+  <div class="roe-group">
+    <h3>4 · PvP Events</h3>
+    <div class="roe-rule">
+      <strong>Vorrang der Scopely-PvP-Events</strong>
+      <p>Offizielle Scopely-PvP-Events setzen die normalen RoE außer Kraft.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Gültige Ziele und Bereiche</strong>
+      <p>Diese Ausnahme gilt ausschließlich für gültige Ziele und Bereiche, für die Event-Punkte erzielt werden können.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Ende des Events</strong>
+      <p>Nach Ende des Events gelten wieder die normalen RoE.</p>
+    </div>
+  </div>
+
+  <div class="roe-group">
+    <h3>5 · War / KOS</h3>
+    <div class="roe-rule">
+      <strong>Kriegserklärung / KOS</strong>
+      <p>Eine offiziell erklärte Kriegssituation bzw. ein KOS setzt die normalen RoE außer Kraft.</p>
+    </div>
+    <div class="roe-rule">
+      <strong>Offizielle Bekanntgabe</strong>
+      <p>Kriegserklärungen und KOS müssen offiziell im War-Declaration-Channel bekannt gegeben werden.</p>
+    </div>
+  </div>
+
+  <div class="roe-note">
+    <strong>⚠ Grundsatz:</strong> Alles, was in den obigen Regeln nicht ausdrücklich geschützt ist, ist FTK (Free To Kill).
+  </div>
+
+  <p class="roe-glossary"><strong>Abkürzungen:</strong> UPC = Under Protected Cargo · OPC = Over Protected Cargo · FTK = Free To Kill</p>
 
 </section>
 
